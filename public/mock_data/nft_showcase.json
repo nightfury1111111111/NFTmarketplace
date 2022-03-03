@@ -1,0 +1,27 @@
+[
+    {
+        "previewImg": "./img/carousel/crs-5.jpg",
+        "title": "live Arts",
+        "username": "Nicholas Daniels"
+    },
+    {
+        "previewImg": "./img/carousel/crs-4.jpg",
+        "title": "Red Ocean",
+        "username": "Monica Lucas"
+    },
+    {
+        "previewImg": "./img/carousel/crs-3.jpg",
+        "title": "Hot Lava",
+        "username": "Nicholas Daniels"
+    },
+    {
+        "previewImg": "./img/items/anim-5.webp",
+        "title": "Loop Donut",
+        "username": "Lori Hart"
+    },
+    {
+        "previewImg": "./img/items/anim-8.webp",
+        "title": "I Believe I Can Fly",
+        "username": "Fred Ryan"
+    }
+]

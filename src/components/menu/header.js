@@ -140,7 +140,7 @@ const Header = function () {
                     </NavLink>
                   </div>
                   <div className="navbar-item">
-                    <NavLink to="/" onClick={() => btn_icon(!showmenu)}>
+                    <NavLink to="/about" onClick={() => btn_icon(!showmenu)}>
                       🤔
                     </NavLink>
                   </div>
@@ -168,7 +168,7 @@ const Header = function () {
                   </NavLink>
                 </div>
                 <div className="navbar-item">
-                  <NavLink to="/" onClick={() => btn_icon(!showmenu)}>
+                  <NavLink to="/about" onClick={() => btn_icon(!showmenu)}>
                     🤔
                   </NavLink>
                 </div>

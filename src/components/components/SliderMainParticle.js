@@ -14,40 +14,45 @@ const fadeInUp = keyframes`
     transform: translateY(0);
   }
 `;
-const inline = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-  .d-inline{
-    display: inline-block;
-   }
-`;
 
-const slidermainparticle= () => (
- <div className="container">
-    <div className="row align-items-center">
-          <div className="col-md-6">
-              <div className="spacer-single"></div>
-              <div className="spacer-double"></div>
-              <Reveal className='onStep' keyframes={fadeInUp} delay={300} duration={900} triggerOnce>
-              <h1 className="col-white">Create, sell or collect digital items.</h1>
-              </Reveal>
-              <Reveal className='onStep' keyframes={fadeInUp} delay={600} duration={900} triggerOnce>
-              <p className="lead col-white">
-              Unit of data stored on a digital ledger, called a blockchain, that certifies a digital asset to be unique and therefore not interchangeable
-              </p>
-              </Reveal>
-              <div className="spacer-10"></div>
-              <Reveal className='onStep d-inline' keyframes={inline} delay={800} duration={900} triggerOnce>
-              <span onClick={()=> window.open("#", "_self")} className="btn-main inline lead">Explore</span>
-              <span onClick={()=> window.open("#", "_self")} className="btn-main inline white lead">Create</span>
-              <div className="mb-sm-30"></div>
-              </Reveal>
+const slidermainparticle = () => (
+  <div className="container bannerText">
+    <div className="row align-items-center justify-content-center">
+      <div className="col-md-9">
+        <div className="spacer-single"></div>
+        <Reveal
+          className="onStep"
+          keyframes={fadeInUp}
+          delay={300}
+          duration={900}
+          triggerOnce
+        >
+          <div
+            className="bannerTitle"
+            style={{
+              fontFamily: "Archivo Black",
+              textShadow: "0 2px 10px #f38aff",
+            }}
+          >
+            <span>LUV</span>
+            <span> NFT</span>
+            <span className='gradientText'> ESTATE</span>
           </div>
+        </Reveal>
+        <Reveal
+          className="onStep"
+          keyframes={fadeInUp}
+          delay={600}
+          duration={900}
+          triggerOnce
+        >
+          <div className='bannerDesc'>
+            Donate, trade, collect and sell virtual properties based on
+            real-world addresses.
+          </div>
+        </Reveal>
       </div>
     </div>
+  </div>
 );
 export default slidermainparticle;

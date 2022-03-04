@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import styled from "styled-components";
@@ -14,6 +14,9 @@ const Outer = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 8px;
 `;
 
 const CarouselNewRedux = () => {
@@ -21,15 +24,6 @@ const CarouselNewRedux = () => {
     const dispatch = useDispatch();
     const nftsState = useSelector(selectors.nftBreakdownState);
     const nfts = nftsState.data ? nftsState.data : [];
-
-    const [height, setHeight] = useState(0);
-
-    const onImgLoad = ({target:img}) => {
-        let currentHeight = height;
-        if(currentHeight < img.offsetHeight) {
-            setHeight(img.offsetHeight);
-        }
-    }
     
     useEffect(() => {
         dispatch(fetchNftsBreakdown());
@@ -53,10 +47,10 @@ const CarouselNewRedux = () => {
                             <i className="fa fa-check"></i>
                         </span>
                     </div>
-                    <div className="nft__item_wrap" style={{height: `${height}px`}}>
+                    <div className="nft__item_wrap">
                       <Outer>
                         <span>
-                            <img src={nft.previewImg} className="lazy nft__item_preview" onLoad={onImgLoad} alt=""/>
+                            <img src={nft.previewImg} className="lazy nft__item_preview" alt=""/>
                         </span>
                       </Outer>
                     </div>

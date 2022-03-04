@@ -1,17 +1,10 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import Clock from "./Clock";
 
-const Outer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 8px;
-`;
+
 
 export default class Responsive extends Component {
+
     dummyData = [{
         deadline:"December, 30, 2021",
         authorLink: "#",
@@ -207,6 +200,7 @@ export default class Responsive extends Component {
             })
         }
     }
+    
 
  render() {
   return (
@@ -226,11 +220,9 @@ export default class Responsive extends Component {
                         </span>
                     </div>
                     <div className="nft__item_wrap" style={{height: `${this.state.height}px`}}>
-                      <Outer>
                         <span>
                             <img onLoad={this.onImgLoad} src={nft.previewImg} className="lazy nft__item_preview" alt=""/>
                         </span>
-                      </Outer>
                     </div>
                     <div className="nft__item_info">
                         <span onClick={()=> window.open(nft.nftLink, "_self")}>

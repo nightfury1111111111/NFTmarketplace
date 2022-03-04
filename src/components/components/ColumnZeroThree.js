@@ -181,16 +181,16 @@ export default class Responsive extends Component {
         likes: 50
     }]
 
-  constructor(props) {
+    constructor(props) {
     super(props);
     this.state = {
         nfts: this.dummyData,
-        height: 0
+    height: 0
     };
     this.onImgLoad = this.onImgLoad.bind(this);
     }
 
-     onImgLoad({target:img}) {
+    onImgLoad({target:img}) {
         let currentHeight = this.state.height;
         if(currentHeight < img.offsetHeight) {
             this.setState({

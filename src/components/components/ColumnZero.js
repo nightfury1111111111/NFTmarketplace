@@ -12,7 +12,7 @@ const Outer = styled.div`
 `;
 
 export default class Responsive extends Component {
-    dummyData = [{
+   dummyData = [{
         deadline:"December, 30, 2021",
         authorLink: "#",
         nftLink: "#",
@@ -185,12 +185,12 @@ export default class Responsive extends Component {
     super(props);
     this.state = {
         nfts: this.dummyData,
-        height: 0
+    height: 0
     };
     this.onImgLoad = this.onImgLoad.bind(this);
     }
 
-     onImgLoad({target:img}) {
+    onImgLoad({target:img}) {
         let currentHeight = this.state.height;
         if(currentHeight < img.offsetHeight) {
             this.setState({

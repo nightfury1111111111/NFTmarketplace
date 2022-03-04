@@ -14,15 +14,6 @@ const Outer = styled.div`
 //react functional component
 const NftCard = ({ nft, className = 'd-item col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-4', clockTop = true, height, onImgLoad }) => {
 
-    // const [height, setHeight] = useState(0);
-
-    // const onImgLoad = ({target:img}) => {
-    //     let currentHeight = height;
-    //     if(currentHeight < img.offsetHeight) {
-    //         setHeight(img.offsetHeight);
-    //     }
-    // }
-
     return (
         <div className={className}>
             <div className="nft__item m-0">

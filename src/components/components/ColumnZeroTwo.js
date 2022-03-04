@@ -200,12 +200,12 @@ export default class Responsive extends Component {
     super(props);
     this.state = {
         nfts: this.dummyData,
-        height: 0
+    height: 0
     };
     this.onImgLoad = this.onImgLoad.bind(this);
     }
 
-     onImgLoad({target:img}) {
+    onImgLoad({target:img}) {
         let currentHeight = this.state.height;
         if(currentHeight < img.offsetHeight) {
             this.setState({
@@ -220,9 +220,11 @@ export default class Responsive extends Component {
         {this.state.nfts.map( (nft, index) => (
             <div key={index} className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
                 <div className="nft__item">
-                    <div className="de_countdown">
-                    <Clock deadline={nft.deadline} />
-                    </div>
+                    { nft.deadline &&
+                        <div className="de_countdown">
+                            <Clock deadline={nft.deadline} />
+                        </div>
+                    }
                     <div className="author_list_pp">
                         <span onClick={()=> window.open(nft.authorLink, "_self")}>                                    
                             <img className="lazy" src={nft.authorImg} alt=""/>

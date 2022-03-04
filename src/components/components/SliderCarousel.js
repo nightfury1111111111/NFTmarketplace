@@ -76,12 +76,12 @@ export default class Responsive extends Component {
               <div className="nft_pic">                            
                   <span>
                       <span className="nft_pic_info">
-                          <span className="nft_pic_title">Glass Cube</span>
-                          <span className="nft_pic_by">Mamie Barnett</span>
+                          <span className="nft_pic_title">live Arts</span>
+                          <span className="nft_pic_by">Nicholas Daniels</span>
                       </span>
                   </span>
                   <div className="nft_pic_wrap">
-                      <img src="./img/carousel/crs-1.jpg" className="lazy img-fluid" alt=""/>
+                      <img src="./img/carousel/crs-5.jpg" className="lazy img-fluid" alt=""/>
                   </div>
               </div>
             </CustomSlide>
@@ -90,12 +90,12 @@ export default class Responsive extends Component {
              <div className="nft_pic">                            
                   <span >
                       <span className="nft_pic_info">
-                          <span className="nft_pic_title">Purple Ocean</span>
+                          <span className="nft_pic_title">Red Ocean</span>
                           <span className="nft_pic_by">Monica Lucas</span>
                       </span>
                   </span>
                   <div className="nft_pic_wrap">
-                      <img src="./img/carousel/crs-2.jpg" className="lazy img-fluid" alt=""/>
+                      <img src="./img/carousel/crs-4.jpg" className="lazy img-fluid" alt=""/>
                   </div>
               </div>
             </CustomSlide>

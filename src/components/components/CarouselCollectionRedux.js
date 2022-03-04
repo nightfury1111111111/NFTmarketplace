@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { settings } from "./constants";
+import { carouselCollection } from "./constants";
 import CustomSlide from "./CustomSlide";
 import * as selectors from '../../store/selectors';
 import { fetchHotCollections } from "../../store/actions/thunks";
@@ -20,7 +20,7 @@ const CarouselCollectionRedux = () => {
 
   return (
       <div className='nft'>
-        <Slider {...settings}>
+        <Slider {...carouselCollection}>
           { hotCollections && hotCollections.map((item, index) => (
             <CustomSlide
               key={index}

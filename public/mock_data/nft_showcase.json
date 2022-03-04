@@ -1,13 +1,13 @@
 [
     {
+        "previewImg": "./img/carousel/crs-6.jpg",
+        "title": "THE ERA OF 90'S",
+        "username": "Gayle Hicks"
+    },
+    {
         "previewImg": "./img/carousel/crs-5.jpg",
         "title": "live Arts",
         "username": "Nicholas Daniels"
-    },
-    {
-        "previewImg": "./img/carousel/crs-4.jpg",
-        "title": "Red Ocean",
-        "username": "Monica Lucas"
     },
     {
         "previewImg": "./img/carousel/crs-3.jpg",

@@ -58,20 +58,20 @@ export const getWalletInfo = () => async (dispatch, getState) => {
       console.error("Failed to setup the network in Metamask:", error);
       return false;
     }
-    
+
     if (!window.web3) {
       window.alert("No metamask found! Please install!");
       return;
     }
-    
+
     const web3 = new Web3(window.web3.currentProvider);
     var accounts = await web3.eth.getAccounts();
-    
+
     if (!accounts[0]) {
       await window.ethereum.request({ method: "eth_requestAccounts" });
       accounts = await web3.eth.getAccounts();
     }
-    
+
     const account = accounts[0];
     const response = await hmy.blockchain.getBalance({
       address: account,
@@ -81,10 +81,11 @@ export const getWalletInfo = () => async (dispatch, getState) => {
     const abi = Auction.abi;
     const auctionContract = new web3.eth.Contract(abi, contractAddress);
     const manager = await auctionContract.methods.manager().call();
+    const fee = await auctionContract.methods.managerFee().call();
 
     const balance =
       Math.round(100 * fromWei(hexToNumber(response.result), Units.one)) / 100;
-    const data={account, balance, manager}
+    const data = { account, balance, manager, fee };
     dispatch(actions.getWalletInfo.success(data));
   } catch (err) {
     dispatch(actions.getWalletInfo.failure(err));

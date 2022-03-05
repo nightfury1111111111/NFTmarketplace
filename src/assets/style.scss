@@ -2923,6 +2923,10 @@ i.font60 {
   margin-bottom: 20px;
   justify-content: center;
 }
+.previewImage{
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
 .nft__item_wrap span {
   display: block;
   width: 100%;
@@ -3973,6 +3977,19 @@ img.img-rounded {
   }
 }
 
+.uploadBtn{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.feeDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30px;
+  color: white;
+}
+
 #form_sb {
   .col {
     display: flex;
@@ -4018,8 +4035,18 @@ img.img-rounded {
   font-size: 60px;
 }
 
-.aaa{
-  font-size: large;
+.imageUpload{
+  display: flex;
+  flex-direction: row;
+}
+
+.thumbnailImage{
+  margin-top: 40px;
+}
+
+.originalImage{
+  margin-top: 40px;
+  margin-left: 20px;
 }
 
 /*** media all ***/
@@ -4148,8 +4175,20 @@ img.img-rounded {
     font-size: 32px;
   }
   .bannerDesc{
-  font-size: 18px;
-}
+    font-size: 18px;
+  }
+  .imageUpload{
+    flex-direction: column;
+  }
+  .originalImage{
+    margin-left: 0;
+  }
+  .reverseContainer{
+    flex-direction: column-reverse;
+  }
+  .mobileBtn{
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 420px) {
 }

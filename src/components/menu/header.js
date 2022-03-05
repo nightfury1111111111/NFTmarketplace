@@ -102,6 +102,18 @@ const Header = function () {
     accountInfo.data &&
       setIsAdmin(accountInfo.data.manager === accountInfo.data.account);
   }, [accountInfo]);
+
+  const accountChangedHandler = () => {
+    dispatch(getWalletInfo());
+  };
+
+  const chainChangedHandler = () => {
+    window.location.reload();
+  };
+
+  window.ethereum.on("accountsChanged", accountChangedHandler);
+  window.ethereum.on("chainChanged", chainChangedHandler);
+
   return (
     <header id="myHeader" className="navbar white">
       <div className="container">

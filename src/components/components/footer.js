@@ -63,7 +63,7 @@ const footer = () => (
                     </div>
                 </div>
             </div> */}
-    <div className="subfooter" style={{color:"white"}}>
+    <div className="subfooter" style={{color:"white", fontFamily:"Poppins"}}>
       <div className="container">
         <div className="row">
           <div className="col-md-12">

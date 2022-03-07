@@ -221,7 +221,7 @@ const CreatePage = () => {
 
       <div
         style={{
-          backgroundColor: "darkslategray",
+          backgroundColor: "#242325",
         }}
       >
         <section className="container">

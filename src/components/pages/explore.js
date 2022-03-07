@@ -15,16 +15,16 @@ import { setFilterInfo, clearFilterInfo } from "../../store/actions/thunks";
 const customStyles = {
   option: (base, state) => ({
     ...base,
-    background: "#212428",
-    color: "#fff",
+    background: "#B18FCF",
+    color: "#000",
     borderRadius: state.isFocused ? "0" : 0,
     "&:hover": {
-      background: "#16181b",
+      background: "#fff",
     },
   }),
   menu: (base) => ({
     ...base,
-    background: "#212428 !important",
+    background: "#242325 !important",
     borderRadius: 0,
     marginTop: 0,
   }),
@@ -39,7 +39,7 @@ const customStyles = {
 };
 
 const options = [
-  { value: "all", label: "🍭 All categories" },
+  { value: "all", label: "🍭 TRIBES" },
   { value: "land", label: "🗺 LAND" },
   { value: "services", label: "💈 SERVICES" },
   { value: "house", label: "🏠 HAUS" },
@@ -56,17 +56,18 @@ const options = [
   { value: "yacht", label: "🛥 YACHT" },
 ];
 const options1 = [
-  { value: "all", label: "🎄 All status" },
-  { value: "BuyNow", label: "🛒 Buy now" },
-  { value: "OnAuction", label: "⏱ On Auction" },
-  { value: "OnRent", label: "👋 Open for rent" },
-  { value: "NotForSale", label: "🚫 Not for sale" },
+  { value: "all", label: "🎄 STATUS" },
+  { value: "BuyNow", label: "🛒 BUY NOW" },
+  { value: "OnAuction", label: "⏱ ON AUCTION" },
+  { value: "OnRent", label: "👋 OPEN FOR RENT" },
+  { value: "NotForSale", label: "🚫 NOT FOR SALE" },
 ];
 const options2 = [
-  { value: "RecentlyAdded", label: "Recently added" },
-  { value: "LowToHigh", label: "Low to high" },
-  { value: "HighToLow", label: "High to low" },
-  { value: "EndingSoon", label: "Ending soon" },
+  { value: "", label: "FILTER" },
+  { value: "RecentlyAdded", label: "🆕 NEW" },
+  { value: "LowToHigh", label: "⬇️ LOW TO HIGH" },
+  { value: "HighToLow", label: "⬆️ HIGH TO LOW" },
+  { value: "EndingSoon", label: "⏲ ENDING SOON" },
 ];
 
 const Explore = () => {
@@ -140,7 +141,7 @@ const Explore = () => {
 
       <div
         style={{
-          backgroundColor: "darkslategrey",
+          backgroundColor: "#242325",
         }}
       >
         <section className="container">
@@ -158,7 +159,7 @@ const Explore = () => {
                       className="form-control"
                       id="name_1"
                       name="name_1"
-                      placeholder="search item here..."
+                      placeholder="SEARCH ITEM HERE..."
                       type="text"
                       onChange={(e) => setSearchKey(e.target.value)}
                       value={searchKey}

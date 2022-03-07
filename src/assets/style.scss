@@ -47,7 +47,7 @@ $general: #a2a2a2;
 $black_soft: #333;
 $black_col: #2e333c;
 $black_more: #0f0f0f;
-$color: #ff343f;
+$color: #69E4AD;
 $color_more: #fc202c;
 .col-white {
   color: $white;
@@ -65,7 +65,7 @@ body {
   font-weight: 300;
   font-size: 16px;
   color: $general;
-  background: #212428;
+  background: #242325;
   word-spacing: 0px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -106,6 +106,10 @@ section {
   &.bg-gray {
     background: rgb(247, 244, 253);
   }
+}
+
+.mapSearch{
+  position: absolute;
 }
 
 .wraper {
@@ -664,7 +668,7 @@ p.lead {
   width: max-content;
   text-align: center;
   color: #fff !important;
-  background: #ff343f;
+  background: #69E4AD;
   border-radius: 30px;
   letter-spacing: normal;
   outline: 0;
@@ -677,7 +681,7 @@ p.lead {
   box-shadow: 2px 2px 20px 0px rgba(131, 100, 226, 0);
   transition: all 0.3s ease;
   &:hover {
-    box-shadow: 2px 2px 20px 0px #ff343f;
+    box-shadow: 2px 2px 20px 0px #69E4AD;
     transition: all 0.3s ease;
   }
   &.inline {
@@ -1018,11 +1022,11 @@ p.lead {
     position: fixed;
     top: 0;
     width: 100%;
-    background: #212428;
+    background: #242325;
     border-bottom: 0;
     transition: all 0.6s ease;
     &.white {
-      background: #212428;
+      background: #242325;
       box-shadow: 0 4px 20px 0 rgba(10, 10, 10, 0.8);
       .btn {
         color: $white;
@@ -1060,7 +1064,7 @@ p.lead {
     a {
       text-align: center;
       color: #fff !important;
-      background: #ff343f;
+      background: #69E4AD;
       border-radius: 30px;
       letter-spacing: normal;
       outline: 0;
@@ -1073,7 +1077,7 @@ p.lead {
       box-shadow: 2px 2px 20px 0px rgba(131, 100, 226, 0);
       transition: all 0.3s ease;
       &:hover {
-        box-shadow: 2px 2px 20px 0px #ff343f;
+        box-shadow: 2px 2px 20px 0px #69E4AD;
         transition: all 0.3s ease;
       }
     }
@@ -1658,9 +1662,9 @@ p.lead {
 /*** footer ***/
 footer {
   // padding: 80px 0 0 0;
-  background: rgba(255, 255, 255, 0.025);
+  background: #242325;
   &.footer-light {
-    border-top: solid 1px rgba(255, 255, 255, 0.025);
+    border-top: solid 1px #242325;
     color: #a2a2a2;
     a {
       color: #a2a2a2;
@@ -1725,7 +1729,7 @@ footer {
           i {
             text-shadow: none;
             color: $white;
-            background: #212428;
+            background: #242325;
             padding: 12px 10px 8px 10px;
             width: 34px;
             height: 34px;
@@ -2181,7 +2185,7 @@ address {
     }
     &:hover {
       .btn-main {
-        box-shadow: 2px 2px 20px 0px #ff343f;
+        box-shadow: 2px 2px 20px 0px #69E4AD;
         transition: all 0.3s ease;
       }
     }
@@ -2233,7 +2237,7 @@ address {
     margin-bottom: 20px;
     position: relative;
     padding-right: 100px;
-    background: rgba(255, 255, 255, 0.025);
+    background: #242325;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
     img {
@@ -2286,7 +2290,7 @@ address {
       top: 30%;
       font-size: 26px;
       color: $color;
-      background: rgba(255, 255, 255, 0.025);
+      background: #242325;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
       height: 48px;
@@ -2313,7 +2317,7 @@ address {
   border-radius: 3px;
 }
 .feature-box.s1 .inner {
-  background: #212428;
+  background: #242325;
 }
 .feature-box.s1:hover .inner i {
   background: none;
@@ -2455,12 +2459,12 @@ i.font60 {
 .feature-box.f-boxed {
   overflow: none;
   padding: 50px;
-  background: #212428;
+  background: #242325;
   border-radius: 6px;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
   transition: 0.7s;
   &:hover {
-    background: #212428;
+    background: #242325;
     transition: 0.7s;
   }
 }
@@ -2679,7 +2683,7 @@ i.font60 {
   width: 100%;
   .slick-prev {
     left: -12px;
-    background: #212428;
+    background: #242325;
     border-radius: 45px;
     display: block;
     width: 45px;
@@ -2694,7 +2698,7 @@ i.font60 {
       font-style: normal;
       font-weight: normal;
       color: $white;
-      background: #212428;
+      background: #242325;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 45px;
       display: block;
@@ -2709,7 +2713,7 @@ i.font60 {
   }
   .slick-next {
     right: -12px;
-    background: #212428;
+    background: #242325;
     border-radius: 45px;
     display: block;
     width: 45px;
@@ -2723,7 +2727,7 @@ i.font60 {
       font-style: normal;
       font-weight: normal;
       color: $white;
-      background: #212428;
+      background: #242325;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 45px;
       display: block;
@@ -2787,7 +2791,7 @@ i.font60 {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   margin-bottom: 25px;
-  background: rgba(255, 255, 255, 0.025);
+  background: #242325;
   transition: 0.7s;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
   &:hover {
@@ -2844,7 +2848,7 @@ i.font60 {
   font-size: 0.8rem;
   position: absolute;
   right: 20px;
-  background: #212428;
+  background: #242325;
   padding: 6px 10px;
   border-radius: 30px;
   -moz-border-radius: 30px;
@@ -3292,7 +3296,7 @@ i.font60 {
   height: 42px;
   color: white;
   font-family: "Poppins";
-  background-color: #ff343f;
+  background-color: #69E4AD;
   border-radius: 5px;
 }
 
@@ -3338,7 +3342,7 @@ i.font60 {
 }
 .select1 {
   .css-wenqhu-control {
-    background-color: #212428;
+    background-color: #B18FCF;
     border: 1px solid rgba(255, 255, 255, 0.1);
     & > div > div {
       color: $white;
@@ -3523,7 +3527,7 @@ i.font60 {
       font-size: 14px;
       text-align: center;
       min-width: 80px;
-      background: rgba(255, 255, 255, 0.025);
+      background: #242325;
       border-top: solid 1px rgba(255, 255, 255, 0.1);
       border-radius: 3px;
       -moz-border-radius: 3px;
@@ -3672,7 +3676,7 @@ img.img-rounded {
 }
 .box-login {
   padding: 40px;
-  background: #212428;
+  background: #242325;
   border-radius: 5px;
   p {
     color: $white !important;
@@ -3763,7 +3767,7 @@ img.img-rounded {
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.025);
+    background: #242325;
     background-size: auto;
     box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.05);
     .top {
@@ -3913,7 +3917,7 @@ img.img-rounded {
   }
 }
 .card {
-  background: rgba(255, 255, 255, 0.025);
+  background: #242325;
 }
 .nav-link {
   color: $white;
@@ -4273,6 +4277,9 @@ img.img-rounded {
   .filterNft {
     flex-direction: column;
   }
+  .mapSearch{
+    width: 24rem;
+  }     
 }
 @media only screen and (max-width: 420px) {
 }

@@ -16,6 +16,9 @@ import Clock from "./Clock";
 const NFTCardWrapper = styled.div`
   width: 100%;
   height: 310px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
   color: white;
   text-align: center;
   font-family: "Poppins";
@@ -84,7 +87,7 @@ const NftCard = ({
 
   return (
     <div className={className}>
-      <span className="tooltiptext">{nft.excert}</span>
+      {/* <span className="tooltiptext">{nft.excert}</span> */}
       {/* <div className="nft__item m-0">
                 { nft.deadline && clockTop &&
                     <div className="de_countdown">
@@ -128,15 +131,15 @@ const NftCard = ({
         <Link to={"/nft/" + nft.id} style={{ textDecoration: "none" }}>
           <NFTCardWrapper bgPath={nft.svgData} type={nft.type}>
             <div className="cardTitle">{nft.title}</div>
-            {nft.isOwned && <AnimatedDiv>Owned by you.</AnimatedDiv>}
+            {nft.isOwned && <AnimatedDiv>OWNED BY YOU</AnimatedDiv>}
             {nft.isOwned ? (
               <div style={{ marginTop: "40%" }}>
-                lat: {Number(nft.latitude).toFixed(4)} N, long:
+                LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
                 {Number(nft.longitude).toFixed(4)} E
               </div>
             ) : (
               <div style={{ marginTop: "49%" }}>
-                lat: {Number(nft.latitude).toFixed(4)} N, long:
+                LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
                 {Number(nft.longitude).toFixed(4)} E
               </div>
             )}

@@ -147,7 +147,7 @@ const Header = function () {
                   </div>
                   <div className="navbar-item">
                     <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>
-                      🗺
+                      👀
                     </NavLink>
                   </div>
                   <div className="navbar-item">
@@ -175,7 +175,7 @@ const Header = function () {
                 </div>
                 <div className="navbar-item">
                   <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>
-                    🗺
+                    👀
                   </NavLink>
                 </div>
                 <div className="navbar-item">

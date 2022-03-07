@@ -10,7 +10,7 @@ import { fetchNftDetail } from "../../store/actions/thunks";
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.white {
-    background: #212428;
+    background: #242325;
   }
   .subtitle{
     font-family:"Archivo Black";
@@ -123,14 +123,14 @@ const ItemDetail = () => {
     <div>
       <GlobalStyles />
       {!nftDetail ? (
-        <div style={{ height: "90vh", backgroundColor: "darkslategrey" }} />
+        <div style={{ height: "90vh", backgroundColor: "#242325" }} />
       ) : (
         <></>
       )}
       {nftDetail && (
         <div
           style={{
-            backgroundColor: "darkslategrey",
+            backgroundColor: "#242325",
             paddingTop: "50px",
             minHeight: "90vh",
           }}
@@ -172,7 +172,7 @@ const ItemDetail = () => {
                   <div className="col-md-6">
                     <p>🏁 {nftDetail.excert}</p>
                     <p>💙 NFT ESTATE: {nftDetail.type}</p>
-                    <p>💼 STtatus: {nftDetail.status}</p>
+                    <p>💼 Status: {nftDetail.status}</p>
                     <p>💿 One :</p>
                     <p>⏰ Auction Ends:</p>
                   </div>

@@ -49,3 +49,11 @@ export const getWalletInfo = asyncAction(
 )();
 
 export const clearAccount = action("account/CLEAR_ACCOUNT")();
+
+export const setFilterInfo = asyncAction(
+  "filter/SET_FILTER_INFO",
+  "filter/SET_FILTER_INFO_SUCCESS",
+  "filter/SET_FILTER_INFO_FAIL"
+)();
+
+export const clearFilter = action("filter/CLEAR_FILTER")();

@@ -9,6 +9,7 @@ export const hotCollectionsState = (state) =>
 export const authorsState = (state) => state.authors.authorList;
 export const authorRankingsState = (state) => state.authors.authorRanking;
 export const accountState = (state) => state.account.currentAccount;
+export const filterStatus = (state) => state.filter.currentFilter;
 
 export const auctionedNfts = createSelector(nftBreakdownState, (nfts) => {
   if (!nfts.data) {

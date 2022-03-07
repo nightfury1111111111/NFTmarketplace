@@ -196,8 +196,13 @@ const CreatePage = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Poppins" }}>
-      <section className="jumbotron breadcumb no-bg">
+    <div>
+      <section
+        className="jumbotron breadcumb no-bg"
+        style={{
+          backgroundImage: `url("img/gallery/6.jpg")`,
+        }}
+      >
         <div className="mainbreadcumb">
           <div className="container">
             <div className="row m-10-hor">
@@ -214,64 +219,38 @@ const CreatePage = () => {
         </div>
       </section>
 
-      <section className="container">
-        <div className="row reverseContainer">
-          <div className="col-lg-7 offset-lg-1 mb-5">
-            <form id="form-create-item" className="form-border" action="#">
-              <div className="field-set">
-                <div className="imageUpload">
-                  <div>
-                    <div className="thumbnailImage">
-                      <h5>Upload thumbnail image</h5>
-                      <div className="d-create-file">
-                        <p id="file_name">
-                          PNG, JPG, GIF, WEBP or MP4. Max 200mb.
-                        </p>
-                        {thumbnail && <p>Thumbnail selected</p>}
-                        <div className="browse">
-                          <input
-                            type="button"
-                            id="get_file"
-                            className="btn-main"
-                            value="Browse"
-                          />
-                          <input
-                            id="upload_file"
-                            type="file"
-                            onChange={handleThumbnailUpload}
-                          />
-                        </div>
-                      </div>
-                    </div>
+      <div
+        style={{
+          backgroundColor: "darkslategray",
+        }}
+      >
+        <section className="container">
+          <div className="row reverseContainer">
+            <div className="col-lg-7 offset-lg-1 mb-5">
+              <form id="form-create-item" className="form-border" action="#">
+                <div className="field-set">
+                  <div className="imageUpload">
                     <div>
-                      <input
-                        type="button"
-                        className="btn-main uploadBtn"
-                        value="Upload"
-                        onClick={uploadThumbnailToIpfs}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="originalImage">
-                      <h5>Upload original image</h5>
-                      <div className="d-create-file">
-                        <p id="file_name">
-                          PNG, JPG, GIF, WEBP or MP4. Max 200mb.
-                        </p>
-                        {original && <p>Original selected</p>}
-                        <div className="browse">
-                          <input
-                            type="button"
-                            id="get_file"
-                            className="btn-main"
-                            value="Browse"
-                          />
-                          <input
-                            id="upload_file"
-                            type="file"
-                            onChange={handleOriginalUpload}
-                          />
+                      <div className="thumbnailImage">
+                        <h5>Upload thumbnail image</h5>
+                        <div className="d-create-file">
+                          <p id="file_name">
+                            PNG, JPG, GIF, WEBP or MP4. Max 200mb.
+                          </p>
+                          {thumbnail && <p>Thumbnail selected</p>}
+                          <div className="browse">
+                            <input
+                              type="button"
+                              id="get_file"
+                              className="btn-main"
+                              value="Browse"
+                            />
+                            <input
+                              id="upload_file"
+                              type="file"
+                              onChange={handleThumbnailUpload}
+                            />
+                          </div>
                         </div>
                       </div>
                       <div>
@@ -279,198 +258,229 @@ const CreatePage = () => {
                           type="button"
                           className="btn-main uploadBtn"
                           value="Upload"
-                          onClick={uploadOriginalToIpfs}
+                          onClick={uploadThumbnailToIpfs}
                         />
                       </div>
                     </div>
+                    <div>
+                      <div className="originalImage">
+                        <h5>Upload original image</h5>
+                        <div className="d-create-file">
+                          <p id="file_name">
+                            PNG, JPG, GIF, WEBP or MP4. Max 200mb.
+                          </p>
+                          {original && <p>Original selected</p>}
+                          <div className="browse">
+                            <input
+                              type="button"
+                              id="get_file"
+                              className="btn-main"
+                              value="Browse"
+                            />
+                            <input
+                              id="upload_file"
+                              type="file"
+                              onChange={handleOriginalUpload}
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <input
+                            type="button"
+                            className="btn-main uploadBtn"
+                            value="Upload"
+                            onClick={uploadOriginalToIpfs}
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  <div className="spacer-single"></div>
+
+                  <h5>Title</h5>
+                  <input
+                    type="text"
+                    name="item_title"
+                    id="item_title"
+                    className="form-control"
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                    value={title}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <h5>Excert</h5>
+                  <input
+                    type="text"
+                    name="item_title"
+                    id="item_title"
+                    className="form-control"
+                    onChange={(e) => {
+                      setExcert(e.target.value);
+                    }}
+                    value={excert}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <h5>Description</h5>
+                  <textarea
+                    data-autoresize
+                    name="item_desc"
+                    id="item_desc"
+                    className="form-control"
+                    onChange={(e) => {
+                      setDescription(e.target.value);
+                    }}
+                    value={description}
+                  ></textarea>
+
+                  <div className="spacer-10"></div>
+
+                  <h5>Type</h5>
+                  <input
+                    type="text"
+                    name="item_price"
+                    id="item_price"
+                    className="form-control"
+                    onChange={(e) => {
+                      setType(e.target.value);
+                    }}
+                    value={type}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <h5>Rooms</h5>
+                  <input
+                    type="number"
+                    name="item_royalties"
+                    id="item_royalties"
+                    className="form-control"
+                    onChange={(e) => {
+                      setRooms(e.target.value);
+                    }}
+                    value={rooms}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <h5>Longitude</h5>
+                  <input
+                    type="number"
+                    name="item_royalties"
+                    id="item_royalties"
+                    className="form-control"
+                    onChange={(e) => {
+                      setLongitude(e.target.value);
+                    }}
+                    value={longitude}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <h5>Latitude</h5>
+                  <input
+                    type="number"
+                    name="item_royalties"
+                    id="item_royalties"
+                    className="form-control"
+                    onChange={(e) => {
+                      setLatitude(e.target.value);
+                    }}
+                    value={latitude}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <input
+                    type="button"
+                    id="submit"
+                    className="btn-main"
+                    value="Mint new NFT"
+                    onClick={mintNFTToken}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <h5>TokenURI</h5>
+                  <textarea
+                    data-autoresize
+                    name="item_desc"
+                    id="item_desc"
+                    className="form-control"
+                    onChange={(e) => {
+                      setTokenURI(e.target.value);
+                    }}
+                    value={tokenURI}
+                  ></textarea>
+                  <hr />
+                  <p
+                    style={{
+                      color: "white",
+                      fontSize: "30px",
+                      fontFamily: "Archivo Black",
+                    }}
+                  >
+                    Set fee & price
+                  </p>
+                  <hr />
+                  <h5>Price</h5>
+                  <input
+                    type="number"
+                    name="item_royalties"
+                    id="item_royalties"
+                    className="form-control"
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                    value={price}
+                  />
+                  <input
+                    type="button"
+                    id="submit"
+                    className="btn-main mobileBtn"
+                    value="Set Price"
+                    onClick={setNftPrice}
+                  />
+
+                  <div className="spacer-10"></div>
+
+                  <div className="feeDiv">
+                    <h5>Fee</h5>
+                    <h5>current fee - {currentFee}</h5>
+                  </div>
+                  <input
+                    type="number"
+                    name="item_royalties"
+                    id="item_royalties"
+                    className="form-control"
+                    onChange={(e) => {
+                      setFee(e.target.value);
+                    }}
+                    value={fee}
+                  />
+                  <input
+                    type="button"
+                    id="submit"
+                    className="btn-main mobileBtn"
+                    value="Set Fee"
+                    onClick={setManagerFee}
+                  />
                 </div>
+              </form>
+            </div>
 
-                <div className="spacer-single"></div>
-
-                <h5>Title</h5>
-                <input
-                  type="text"
-                  name="item_title"
-                  id="item_title"
-                  className="form-control"
-                  onChange={(e) => {
-                    setTitle(e.target.value);
-                  }}
-                  value={title}
-                />
-
-                <div className="spacer-10"></div>
-
-                <h5>Excert</h5>
-                <input
-                  type="text"
-                  name="item_title"
-                  id="item_title"
-                  className="form-control"
-                  onChange={(e) => {
-                    setExcert(e.target.value);
-                  }}
-                  value={excert}
-                />
-
-                <div className="spacer-10"></div>
-
-                <h5>Description</h5>
-                <textarea
-                  data-autoresize
-                  name="item_desc"
-                  id="item_desc"
-                  className="form-control"
-                  onChange={(e) => {
-                    setDescription(e.target.value);
-                  }}
-                  value={description}
-                ></textarea>
-
-                <div className="spacer-10"></div>
-
-                <h5>Type</h5>
-                <input
-                  type="text"
-                  name="item_price"
-                  id="item_price"
-                  className="form-control"
-                  onChange={(e) => {
-                    setType(e.target.value);
-                  }}
-                  value={type}
-                />
-
-                <div className="spacer-10"></div>
-
-                <h5>Rooms</h5>
-                <input
-                  type="number"
-                  name="item_royalties"
-                  id="item_royalties"
-                  className="form-control"
-                  onChange={(e) => {
-                    setRooms(e.target.value);
-                  }}
-                  value={rooms}
-                />
-
-                <div className="spacer-10"></div>
-
-                <h5>Longitude</h5>
-                <input
-                  type="number"
-                  name="item_royalties"
-                  id="item_royalties"
-                  className="form-control"
-                  onChange={(e) => {
-                    setLongitude(e.target.value);
-                  }}
-                  value={longitude}
-                />
-
-                <div className="spacer-10"></div>
-
-                <h5>Latitude</h5>
-                <input
-                  type="number"
-                  name="item_royalties"
-                  id="item_royalties"
-                  className="form-control"
-                  onChange={(e) => {
-                    setLatitude(e.target.value);
-                  }}
-                  value={latitude}
-                />
-
-                <div className="spacer-10"></div>
-
-                <input
-                  type="button"
-                  id="submit"
-                  className="btn-main"
-                  value="Mint new NFT"
-                  onClick={mintNFTToken}
-                />
-
-                <div className="spacer-10"></div>
-
-                <h5>TokenURI</h5>
-                <textarea
-                  data-autoresize
-                  name="item_desc"
-                  id="item_desc"
-                  className="form-control"
-                  onChange={(e) => {
-                    setTokenURI(e.target.value);
-                  }}
-                  value={tokenURI}
-                ></textarea>
-                <hr />
-                <p
-                  style={{
-                    color: "white",
-                    fontSize: "30px",
-                    fontFamily: "Archivo Black",
-                  }}
-                >
-                  Set fee & price
-                </p>
-                <hr />
-                <h5>Price</h5>
-                <input
-                  type="number"
-                  name="item_royalties"
-                  id="item_royalties"
-                  className="form-control"
-                  onChange={(e) => {
-                    setPrice(e.target.value);
-                  }}
-                  value={price}
-                />
-                <input
-                  type="button"
-                  id="submit"
-                  className="btn-main mobileBtn"
-                  value="Set Price"
-                  onClick={setNftPrice}
-                />
-
-                <div className="spacer-10"></div>
-
-                <div className="feeDiv">
-                  <h5>Fee</h5>
-                  <h5>current fee - {currentFee}</h5>
-                </div>
-                <input
-                  type="number"
-                  name="item_royalties"
-                  id="item_royalties"
-                  className="form-control"
-                  onChange={(e) => {
-                    setFee(e.target.value);
-                  }}
-                  value={fee}
-                />
-                <input
-                  type="button"
-                  id="submit"
-                  className="btn-main mobileBtn"
-                  value="Set Fee"
-                  onClick={setManagerFee}
-                />
-              </div>
-            </form>
-          </div>
-
-          <div className="col-lg-3 col-sm-6 col-xs-12 previewImage">
-            <h5>Preview picture</h5>
-            <div className="nft__item m-0">
-              {/* <div className="de_countdown">
+            <div className="col-lg-3 col-sm-6 col-xs-12 previewImage">
+              <h5>Preview picture</h5>
+              <div className="nft__item m-0">
+                {/* <div className="de_countdown">
                   <Clock deadline="December, 30, 2022" />
                 </div> */}
-              {/* <div className="author_list_pp">
+                {/* <div className="author_list_pp">
                   <span>
                     <img
                       className="lazy"
@@ -480,24 +490,24 @@ const CreatePage = () => {
                     <i className="fa fa-check"></i>
                   </span>
                 </div> */}
-              <div className="nft__item_wrap">
-                <span>
-                  <img
-                    // src="./img/collections/coll-item-3.jpg"
-                    src={uploadedImage}
-                    id="get_file_2"
-                    className="lazy nft__item_preview"
-                    alt=""
-                  />
-                </span>
-              </div>
-              <div className="nft__item_info">
-                <span>
-                  <h4>
-                    You can check if the image is upload to IPFS correctly.
-                  </h4>
-                </span>
-                {/* <div className="nft__item_price">
+                <div className="nft__item_wrap">
+                  <span>
+                    <img
+                      // src="./img/collections/coll-item-3.jpg"
+                      src={uploadedImage}
+                      id="get_file_2"
+                      className="lazy nft__item_preview"
+                      alt=""
+                    />
+                  </span>
+                </div>
+                <div className="nft__item_info">
+                  <span>
+                    <h4>
+                      You can check if the image is upload to IPFS correctly.
+                    </h4>
+                  </span>
+                  {/* <div className="nft__item_price">
                     0.08 ETH<span>1/20</span>
                   </div>
                   <div className="nft__item_action">
@@ -507,11 +517,12 @@ const CreatePage = () => {
                     <i className="fa fa-heart"></i>
                     <span>50</span>
                   </div> */}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <Footer />
     </div>

@@ -1634,11 +1634,11 @@ p.lead {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color:white;
+  color: white;
 }
 
-.gradientText{
-    background-image: linear-gradient(
+.gradientText {
+  background-image: linear-gradient(
     124deg,
     #62fff2,
     #5351c5 34%,
@@ -1650,7 +1650,7 @@ p.lead {
   -webkit-text-fill-color: transparent;
 }
 
-.bannerDesc{
+.bannerDesc {
   font-family: "Poppins";
   font-size: 25px;
 }
@@ -2923,7 +2923,7 @@ i.font60 {
   margin-bottom: 20px;
   justify-content: center;
 }
-.previewImage{
+.previewImage {
   margin-top: 40px;
   margin-bottom: 25px;
 }
@@ -3216,11 +3216,31 @@ i.font60 {
     justify-content: center;
   }
 }
+
+.filterNft {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.priceFilter {
+  display: flex;
+  flex-direction: row;
+}
+
+.priceBtn {
+  border: 0;
+  height: 42px;
+  color: white;
+  font-family: "Poppins";
+  background-color: #ff343f;
+  border-radius: 5px;
+}
+
 #form_quick_search {
   display: inline-block;
   margin-right: 0px;
   position: relative;
-  top: 14px;
+  top: 0;
   input[type="text"] {
     padding: 8px 12px;
     width: 200px;
@@ -3241,7 +3261,8 @@ i.font60 {
     margin: 0;
     border: 0;
     background: none;
-    i {
+    i,
+    p {
       text-align: center;
       font-size: 16px;
       float: left;
@@ -3977,12 +3998,12 @@ img.img-rounded {
   }
 }
 
-.uploadBtn{
+.uploadBtn {
   width: 100%;
   margin-top: 20px;
 }
 
-.feeDiv{
+.feeDiv {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -4035,16 +4056,16 @@ img.img-rounded {
   font-size: 60px;
 }
 
-.imageUpload{
+.imageUpload {
   display: flex;
   flex-direction: row;
 }
 
-.thumbnailImage{
+.thumbnailImage {
   margin-top: 40px;
 }
 
-.originalImage{
+.originalImage {
   margin-top: 40px;
   margin-left: 20px;
 }
@@ -4171,23 +4192,26 @@ img.img-rounded {
   .bannerText {
     top: 40%;
   }
-  .bannerTitle{
+  .bannerTitle {
     font-size: 32px;
   }
-  .bannerDesc{
+  .bannerDesc {
     font-size: 18px;
   }
-  .imageUpload{
+  .imageUpload {
     flex-direction: column;
   }
-  .originalImage{
+  .originalImage {
     margin-left: 0;
   }
-  .reverseContainer{
+  .reverseContainer {
     flex-direction: column-reverse;
   }
-  .mobileBtn{
+  .mobileBtn {
     width: 100%;
+  }
+  .filterNft {
+    flex-direction: column;
   }
 }
 @media only screen and (max-width: 420px) {

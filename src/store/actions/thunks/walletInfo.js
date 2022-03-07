@@ -77,7 +77,7 @@ export const getWalletInfo = () => async (dispatch, getState) => {
       address: account,
     });
 
-    const contractAddress = Auction.networks["1666700000"].address;
+    const contractAddress = process.env.REACT_APP_AUCTIONCONTRACT_ADDRESS;
     const abi = Auction.abi;
     const auctionContract = new web3.eth.Contract(abi, contractAddress);
     const manager = await auctionContract.methods.manager().call();

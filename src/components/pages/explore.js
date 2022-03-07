@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import ColumnNewRedux from "../components/ColumnNewRedux";
 import Footer from "../components/footer";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 // import * as selectors from "../../store/selectors";
 import { setFilterInfo, clearFilterInfo } from "../../store/actions/thunks";
 
@@ -124,6 +124,7 @@ const Explore = () => {
           fontFamily: "Archivo Black",
           backgroundImage: `url("img/news/news-2.jpg")`,
           backgroundSize: "100% 100%",
+          zIndex: 5,
         }}
       >
         <div className="mainbreadcumb">
@@ -150,6 +151,7 @@ const Explore = () => {
                   className="row form-dark"
                   id="form_quick_search"
                   name="form_quick_search"
+                  style={{ zIndex: 10 }}
                 >
                   <div className="col">
                     <input

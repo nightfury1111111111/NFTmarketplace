@@ -105,6 +105,7 @@ const Header = function () {
 
   const accountChangedHandler = () => {
     dispatch(getWalletInfo());
+    window.location.reload();
   };
 
   const chainChangedHandler = () => {

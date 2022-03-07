@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import Web3 from "web3";
 
 import { extractJSONFromURI } from "../../../utils/extractJSONFromURI";
 import { Axios, Canceler } from "../../../core/axios";
@@ -13,7 +14,6 @@ const auctionContractAddress = process.env.REACT_APP_AUCTIONCONTRACT_ADDRESS;
 export const fetchNftsBreakdown = () => async (dispatch, getState) => {
   //access the state
   const state = await getState();
-  console.log(state);
 
   dispatch(actions.getNftBreakdown.request(Canceler.cancel));
 
@@ -22,6 +22,13 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
     //   cancelToken: Canceler.token,
     //   params: {},
     // });
+    const web3 = new Web3(window.web3.currentProvider);
+    var accounts = await web3.eth.getAccounts();
+    if (!accounts[0]) {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      accounts = await web3.eth.getAccounts();
+    }
+    const currentAccount = accounts[0];
 
     let data = [];
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -40,14 +47,7 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
     for (let i = 0; i < nftCount; i++) {
       const nftInfo = await connectedNftContract.tokenURI(i);
       const owner = await connectedNftContract.ownerOf(i);
-      const currentAccount = 1;
-      // const currentAccount =
-      //   state &&
-      //   state.account &&
-      //   state.account.currentAccount &&
-      //   state.account.currentAccount.data.account;
-      console.log("sdfsdf", currentAccount);
-      const isOwned = owner === currentAccount;
+      const isOwned = currentAccount === owner;
       const coordinates = JSON.parse(nftInfo).geometry.coordinates;
       const type = JSON.parse(nftInfo).properties.type;
       const title = JSON.parse(nftInfo).properties.title;
@@ -59,11 +59,13 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
       );
       const nftData = {
         id: i,
+        owner,
         isOwned,
         type,
         longitude: coordinates[0],
         latitude: coordinates[1],
         title,
+        // price:2000,
         svgData: extractJSONFromURI(svgData).image,
       };
       data.push(nftData);

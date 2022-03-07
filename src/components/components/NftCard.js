@@ -83,7 +83,10 @@ const NftCard = ({
   //   };
 
   return (
-    <div className={className} style={{ height: "fit-content", padding: 0 }}>
+    <div
+      className={className}
+      style={{ height: "fit-content", padding: 0, zIndex: 5 }}
+    >
       {/* <div className="nft__item m-0">
                 { nft.deadline && clockTop &&
                     <div className="de_countdown">
@@ -129,7 +132,7 @@ const NftCard = ({
             style={{
               //   margin: "auto",
               //   marginTop: "10%",
-              paddingTop:"15px",
+              paddingTop: "15px",
               fontFamily: "Archivo Black",
               fontSize: "20px",
               fontWeight: "bold",

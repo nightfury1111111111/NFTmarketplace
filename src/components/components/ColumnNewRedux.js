@@ -1,9 +1,9 @@
 import React, { memo, useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 // import Particle from "../components/Particle";
 import * as selectors from "../../store/selectors";
-import * as actions from "../../store/actions/thunks";
-import { clearNfts } from "../../store/actions";
+// import * as actions from "../../store/actions/thunks";
+// import { clearNfts } from "../../store/actions";
 import NftCard from "./NftCard";
 import { shuffleArray } from "../../store/utils";
 

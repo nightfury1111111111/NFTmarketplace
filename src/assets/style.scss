@@ -3268,6 +3268,12 @@ i.font60 {
   transition: 1s;
 }
 
+.nftTitle{
+  font-family: "Archivo Black";
+  font-size:40px;
+  padding-bottom: 20px;
+}
+
 .tooltipCard:hover .tooltiptext {
   visibility: visible;
   opacity: 1;

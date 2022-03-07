@@ -59,7 +59,7 @@ const options1 = [
   { value: "all", label: "🎄 All status" },
   { value: "BuyNow", label: "🛒 Buy now" },
   { value: "OnAuction", label: "⏱ On Auction" },
-  { value: "HasOffers", label: "👋 Open for offers" },
+  { value: "OnRent", label: "👋 Open for rent" },
   { value: "NotForSale", label: "🚫 Not for sale" },
 ];
 const options2 = [

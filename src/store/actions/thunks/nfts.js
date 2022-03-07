@@ -46,10 +46,33 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
     let nftCount = await connectedNftContract.nextId();
     for (let i = 0; i < nftCount; i++) {
       const nftInfo = await connectedNftContract.tokenURI(i);
+      // console.log(JSON.parse(nftInfo));
       const owner = await connectedNftContract.ownerOf(i);
+      const auctionInfo = await connectedAuctionContract.getAuctionInfo(i);
+      const {
+        bidIncreasePercentage,
+        auctionBidPeriod,
+        auctionEnd,
+        minPrice,
+        buyNowPrice,
+        nftHighestBid,
+        nftHighestBidder,
+        nftSeller,
+        nftRecipient,
+        ERC20Token,
+        feeRecipients,
+        feePercentages,
+      } = auctionInfo;
+      const rentInfo = await connectedAuctionContract.rentNfts(i);
+      const { lender, borrower, period, price, collateral, extraPay, rentEnd } =
+        rentInfo;
       const isOwned = currentAccount === owner;
       const coordinates = JSON.parse(nftInfo).geometry.coordinates;
       const type = JSON.parse(nftInfo).properties.type;
+      const excert = JSON.parse(nftInfo).properties.excert;
+      const rooms = JSON.parse(nftInfo).properties.rooms;
+      const images = JSON.parse(nftInfo).properties.images;
+      const description = JSON.parse(nftInfo).properties.description;
       const title = JSON.parse(nftInfo).properties.title;
       const svgData = await connectedAuctionContract.getSVG(
         i,
@@ -61,10 +84,35 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
         id: i,
         owner,
         isOwned,
+        description,
+        excert,
+        images,
+        rooms,
         type,
         longitude: coordinates[0],
         latitude: coordinates[1],
         title,
+        //auctionInfo
+        bidIncreasePercentage,
+        auctionBidPeriod,
+        auctionEnd,
+        minPrice,
+        buyNowPrice,
+        nftHighestBid,
+        nftHighestBidder,
+        nftSeller,
+        nftRecipient,
+        ERC20Token,
+        feeRecipients,
+        feePercentages,
+        //rentInfo
+        lender,
+        borrower,
+        rentPeriod: period,
+        rentPrice: price,
+        collateral,
+        extraPay,
+        rentEnd,
         // price:2000,
         svgData: extractJSONFromURI(svgData).image,
       };
@@ -93,7 +141,7 @@ export const fetchNftShowcase = () => async (dispatch) => {
   }
 };
 
-export const fetchNftDetail = () => async (dispatch) => {
+export const fetchNftDetail = (param) => async (dispatch) => {
   dispatch(actions.getNftDetail.request(Canceler.cancel));
 
   try {
@@ -102,6 +150,7 @@ export const fetchNftDetail = () => async (dispatch) => {
       params: {},
     });
 
+    console.log(param);
     dispatch(actions.getNftDetail.success(data));
   } catch (err) {
     dispatch(actions.getNftDetail.failure(err));

@@ -3227,6 +3227,60 @@ i.font60 {
   flex-direction: row;
 }
 
+.cardTitle {
+  padding-top: 15px;
+  font-family: "Archivo Black";
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.tooltipCard {
+  height: fit-content;
+  padding: 0;
+  z-index: 5;
+  display: inline-block;
+  position: relative;
+}
+
+.tooltipCard .tooltiptext {
+  visibility: hidden;
+  width: 90%;
+  min-height: 30%;
+  background-color: darkcyan;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0;
+}
+
+.nftGradientCard{
+  transition: 1s;
+}
+
+.tooltipCard:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltiptext{
+  transition: 1s;
+}
+
+.tooltipCard:hover .nftGradientCard {
+  opacity: 0.4;
+}
+
 .priceBtn {
   border: 0;
   height: 42px;

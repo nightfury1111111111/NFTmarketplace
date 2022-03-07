@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import nftReducer from './nfts';
-import hoteCollectionsReducer from './hotCollections';
-import authorListReducer from './authorList';
-import walletInfo from './walletInfo';
+import { combineReducers } from "redux";
+import nftReducer from "./nfts";
+import hoteCollectionsReducer from "./hotCollections";
+import authorListReducer from "./authorList";
+import walletInfo from "./walletInfo";
 import filterInfo from "./filterInfo";
 
 export const rootReducer = combineReducers({
@@ -10,7 +10,7 @@ export const rootReducer = combineReducers({
   hotCollection: hoteCollectionsReducer,
   authors: authorListReducer,
   account: walletInfo,
-  filter:filterInfo
+  filter: filterInfo,
 });
 
 const reducers = (state, action) => rootReducer(state, action);

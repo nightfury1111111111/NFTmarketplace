@@ -4,6 +4,7 @@ import ScrollToTopBtn from "./menu/ScrollToTop";
 import Header from "./menu/header";
 import Home2 from "./pages/home2";
 import Explore from "./pages/explore";
+import NftDetail from "./pages/ItemDetail";
 import Create from "./pages/create";
 import About from "./pages/about.js";
 
@@ -44,6 +45,7 @@ const app = () => (
         <Explore path="/explore" />
         <Create path="/create" />
         <About path="/about" />
+        <NftDetail path="/nft/:id" />
       </ScrollTop>
     </PosedRouter>
     <ScrollToTopBtn />

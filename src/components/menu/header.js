@@ -8,8 +8,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "@reach/router";
 import useOnclickOutside from "react-cool-onclickoutside";
 
-import { getWalletInfo } from "../../store/actions/thunks";
+import { getWalletInfo, fetchNftsBreakdown } from "../../store/actions/thunks";
 import * as selectors from "../../store/selectors";
+import Logo from "../../assets/luv_nft_estate_logo_map.png";
 
 setDefaultBreakpoints([{ xs: 0 }, { l: 1199 }, { xl: 1200 }]);
 
@@ -92,6 +93,7 @@ const Header = function () {
       }
     });
     dispatch(getWalletInfo());
+    dispatch(fetchNftsBreakdown());
     return () => {
       window.removeEventListener("scroll", scrollCallBack);
     };
@@ -122,11 +124,7 @@ const Header = function () {
           <div className="logo px-0">
             <div className="navbar-title navbar-item">
               <NavLink to="/">
-                <img
-                  src="./img/luv_nft_estate_logo_map.png"
-                  className="img-fluid luvLogo"
-                  alt="#"
-                />
+                <img src={Logo} className="img-fluid luvLogo" alt="#" />
               </NavLink>
             </div>
           </div>

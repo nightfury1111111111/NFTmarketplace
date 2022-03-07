@@ -71,7 +71,7 @@ const AnimatedDiv = styled.div`
 //react functional component
 const NftCard = ({
   nft,
-  className = "d-item col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4",
+  className = "d-item col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4 tooltipCard",
   clockTop = true,
   height,
   onImgLoad,
@@ -83,10 +83,8 @@ const NftCard = ({
   //   };
 
   return (
-    <div
-      className={className}
-      style={{ height: "fit-content", padding: 0, zIndex: 5 }}
-    >
+    <div className={className}>
+      <span className="tooltiptext">{nft.excert}</span>
       {/* <div className="nft__item m-0">
                 { nft.deadline && clockTop &&
                     <div className="de_countdown">
@@ -126,39 +124,27 @@ const NftCard = ({
                     </div>                            
                 </div> 
             </div> */}
-      <Link to={"/nft/" + nft.id} style={{ textDecoration: "none" }}>
-        <NFTCardWrapper bgPath={nft.svgData} type={nft.type}>
-          <div
-            style={{
-              //   margin: "auto",
-              //   marginTop: "10%",
-              paddingTop: "15px",
-              fontFamily: "Archivo Black",
-              fontSize: "20px",
-              fontWeight: "bold",
-              textAlign: "center",
-              width: "100%",
-              color: "white",
-            }}
-          >
-            {nft.title}
-          </div>
-          {nft.isOwned && <AnimatedDiv>Owned by you.</AnimatedDiv>}
-          {nft.isOwned ? (
-            <div style={{ marginTop: "40%" }}>
-              lat: {Number(nft.latitude).toFixed(4)} N, long:
-              {Number(nft.longitude).toFixed(4)} E
-            </div>
-          ) : (
-            <div style={{ marginTop: "49%" }}>
-              lat: {Number(nft.latitude).toFixed(4)} N, long:
-              {Number(nft.longitude).toFixed(4)} E
-            </div>
-          )}
-          <div>ID: {nft.id}</div>
-          <div>💙NFT ESTATE: {nft.type}</div>
-        </NFTCardWrapper>
-      </Link>
+      <div className="nftGradientCard">
+        <Link to={"/nft/" + nft.id} style={{ textDecoration: "none" }}>
+          <NFTCardWrapper bgPath={nft.svgData} type={nft.type}>
+            <div className="cardTitle">{nft.title}</div>
+            {nft.isOwned && <AnimatedDiv>Owned by you.</AnimatedDiv>}
+            {nft.isOwned ? (
+              <div style={{ marginTop: "40%" }}>
+                lat: {Number(nft.latitude).toFixed(4)} N, long:
+                {Number(nft.longitude).toFixed(4)} E
+              </div>
+            ) : (
+              <div style={{ marginTop: "49%" }}>
+                lat: {Number(nft.latitude).toFixed(4)} N, long:
+                {Number(nft.longitude).toFixed(4)} E
+              </div>
+            )}
+            <div>ID: {nft.id}</div>
+            <div>💙NFT ESTATE: {nft.type}</div>
+          </NFTCardWrapper>
+        </Link>
+      </div>
     </div>
   );
 };

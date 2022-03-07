@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Particle from "../components/Particle";
+// import Particle from "../components/Particle";
 import * as selectors from "../../store/selectors";
 import * as actions from "../../store/actions/thunks";
 import { clearNfts } from "../../store/actions";
@@ -8,11 +8,11 @@ import NftCard from "./NftCard";
 import { shuffleArray } from "../../store/utils";
 
 //react functional component
-const ColumnNewRedux = ({ showLoadMore = true, shuffle = false }) => {
+const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
   const [nfts, setNfts] = useState([]);
   const [nftShowList, setNftShowList] = useState([]);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const nftsState = useSelector(selectors.nftBreakdownState);
   const filter = useSelector(selectors.filterStatus);
 
@@ -25,9 +25,9 @@ const ColumnNewRedux = ({ showLoadMore = true, shuffle = false }) => {
     }
   };
 
-  useEffect(() => {
-    dispatch(actions.fetchNftsBreakdown());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(actions.fetchNftsBreakdown());
+  // }, [dispatch]);
 
   useEffect(() => {
     const newNfts = nftsState.data
@@ -40,6 +40,8 @@ const ColumnNewRedux = ({ showLoadMore = true, shuffle = false }) => {
 
   useEffect(() => {
     if (filter.data == null) return;
+    // console.log("nftData", nfts);
+
     const {
       selectedSearchKey,
       selectedMinPrice,
@@ -67,39 +69,58 @@ const ColumnNewRedux = ({ showLoadMore = true, shuffle = false }) => {
     }
 
     if (selectedMaxPrice != 9999999999 || selectedMinPrice != 0) {
-      categoryTmpList.map((nft) => {
-        if (nft.price >= selectedMinPrice && nft.price <= selectedMaxPrice)
-          priceTmpList.push(nft);
-      });
+      if (selectedStatus == "BuyNow") {
+        categoryTmpList.map((nft) => {
+          if (
+            nft.buyNowPrice >= selectedMinPrice &&
+            nft.buyNowPrice <= selectedMaxPrice
+          )
+            priceTmpList.push(nft);
+        });
+      } else if (selectedStatus == "OnAuction") {
+        categoryTmpList.map((nft) => {
+          if (
+            nft.minPrice >= selectedMinPrice &&
+            nft.minPrice <= selectedMaxPrice
+          )
+            priceTmpList.push(nft);
+        });
+      } else if (selectedStatus == "OnRent") {
+        categoryTmpList.map((nft) => {
+          if (
+            nft.rentPrice >= selectedMinPrice &&
+            nft.rentPrice <= selectedMaxPrice
+          )
+            priceTmpList.push(nft);
+        });
+      } else {
+        priceTmpList.push(...categoryTmpList);
+      }
     } else if (selectedMaxPrice == 9999999999 && selectedMinPrice == 0) {
       priceTmpList.push(...categoryTmpList);
     }
 
     if (selectedStatus == "BuyNow") {
       priceTmpList.map((nft) => {
-        if (nft.price > 0 && nft.auctionEndTime == 99999999999) {
+        if (nft.minPrice == 0 && nft.buyNowPrice > 0) {
           statusTmpList.push(nft);
         }
       });
     } else if (selectedStatus == "OnAuction") {
       priceTmpList.map((nft) => {
-        if (nft.auctionEndTime < Date.now() / 1000) {
+        if (nft.minPrice > 0 && nft.buyNowPrice > nft.minPrice) {
           statusTmpList.push(nft);
         }
       });
-    } else if (selectedStatus == "HasOffers") {
+    } else if (selectedStatus == "OnRent") {
       priceTmpList.map((nft) => {
-        if (
-          nft.price > 0 &&
-          nft.auctionEndTime > Date.now() / 1000 &&
-          nft.auctionEndTime != 99999999999
-        ) {
+        if (nft.rentPrice > 0) {
           statusTmpList.push(nft);
         }
       });
     } else if (selectedStatus == "NotForSale") {
       priceTmpList.map((nft) => {
-        if (nft.price == 0) {
+        if (nft.rentPrice == 0 && nft.buyNowPrice == 0) {
           statusTmpList.push(nft);
         }
       });
@@ -119,17 +140,51 @@ const ColumnNewRedux = ({ showLoadMore = true, shuffle = false }) => {
     }
     if (selectedSort == "RecentlyAdded") {
       searchTmpList.sort((a, b) => {
-        return b.tokenId - a.tokenId;
+        return b.id - a.id;
       });
     }
     if (selectedSort == "LowToHigh") {
-      searchTmpList.sort((a, b) => {
-        return a.price - b.price;
-      });
+      if (selectedStatus == "OnRent") {
+        searchTmpList.sort((a, b) => {
+          return a.rentPrice - b.rentPrice;
+        });
+      }
+      if (selectedStatus == "OnAuction") {
+        searchTmpList.sort((a, b) => {
+          return a.minPrice - b.minPrice;
+        });
+      }
+      if (selectedStatus == "BuyNow") {
+        searchTmpList.sort((a, b) => {
+          return a.buyNowPrice - b.buyNowPrice;
+        });
+      }
+      //   if (selectedStatus == "NotForSale" || selectedStatus == "all") {
+      //     searchTmpList.sort((a, b) => {
+      //       return b.id - a.id;
+      //     });
+      //   }
     } else if (selectedSort == "HighToLow") {
-      searchTmpList.sort((a, b) => {
-        return b.price - a.price;
-      });
+      if (selectedStatus == "OnRent") {
+        searchTmpList.sort((a, b) => {
+          return b.rentPrice - a.rentPrice;
+        });
+      }
+      if (selectedStatus == "OnAuction") {
+        searchTmpList.sort((a, b) => {
+          return b.minPrice - a.minPrice;
+        });
+      }
+      if (selectedStatus == "BuyNow") {
+        searchTmpList.sort((a, b) => {
+          return b.buyNowPrice - a.buyNowPrice;
+        });
+      }
+      //   if (selectedStatus == "NotForSale" || selectedStatus == "all") {
+      //     searchTmpList.sort((a, b) => {
+      //       return b.id - a.id;
+      //     });
+      //   }
     } else if (selectedSort == "EndingSoon") {
       searchTmpList.sort((a, b) => {
         return a.auctionEndTime - b.auctionEndTime;
@@ -139,19 +194,19 @@ const ColumnNewRedux = ({ showLoadMore = true, shuffle = false }) => {
   }, [filter, nfts]);
 
   //will run when component unmounted
-  useEffect(() => {
-    return () => {
-      dispatch(clearNfts());
-    };
-  }, [dispatch]);
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(clearNfts());
+  //   };
+  // }, [dispatch]);
 
-  const loadMore = () => {
-    dispatch(actions.fetchNftsBreakdown());
-  };
+  // const loadMore = () => {
+  //   dispatch(actions.fetchNftsBreakdown());
+  // };
 
   return (
     <div className="row" style={{ paddingBottom: "25px" }}>
-      <Particle />
+      {/* <Particle /> */}
       {nftShowList.length == 0 ? <div style={{ height: "70vh" }} /> : <></>}
       {nftShowList &&
         nftShowList.map((nft, index) => (
@@ -162,14 +217,14 @@ const ColumnNewRedux = ({ showLoadMore = true, shuffle = false }) => {
             height={height}
           />
         ))}
-      {showLoadMore && nftShowList.length <= 20 && (
+      {/* {showLoadMore && nftShowList.length <= 20 && (
         <div className="col-lg-12" style={{ zIndex: 10 }}>
           <div className="spacer-single"></div>
           <span onClick={loadMore} className="btn-main lead m-auto">
             Load More
           </span>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

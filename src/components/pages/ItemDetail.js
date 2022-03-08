@@ -170,7 +170,7 @@ const ItemDetail = () => {
                 <div className="nftTitle">{nftDetail.title}</div>
                 <div className="row">
                   <div className="col-md-6">
-                    <p>🏁 {nftDetail.excert}</p>
+                    <p>🏁 {nftDetail.address}</p>
                     <p>💙 NFT ESTATE: {nftDetail.type}</p>
                     <p>💼 Status: {nftDetail.status}</p>
                     <p>💿 One :</p>

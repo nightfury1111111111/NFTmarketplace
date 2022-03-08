@@ -39,7 +39,8 @@ const customStyles = {
 };
 
 const options = [
-  { value: "all", label: "🍭 TRIBES" },
+  // { value: "all", label: "🍭 TRIBES" },
+  { value: "all", label: "TRIBES" },
   { value: "land", label: "🗺 LAND" },
   { value: "services", label: "💈 SERVICES" },
   { value: "house", label: "🏠 HAUS" },
@@ -56,7 +57,8 @@ const options = [
   { value: "yacht", label: "🛥 YACHT" },
 ];
 const options1 = [
-  { value: "all", label: "🎄 STATUS" },
+  // { value: "all", label: "🎄 STATUS" },
+  { value: "all", label: "STATUS" },
   { value: "BuyNow", label: "🛒 BUY NOW" },
   { value: "OnAuction", label: "⏱ ON AUCTION" },
   { value: "OnRent", label: "👋 OPEN FOR RENT" },

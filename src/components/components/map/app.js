@@ -80,7 +80,7 @@ const Map = () => {
         properties: {
           id: "item-95",
           title: "Lorem ipsum dolor sit amet",
-          excert:
+          address:
             "Praesent ullamcorper dui molestie augue hendrerit finibus. Praesent ut ipsum nulla.",
           description:
             "Erat velit scelerisque in dictum non consectetur a erat nam. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Pretium aenean pharetra magna ac placerat vestibulum lectus. Augue mauris augue neque gravida in fermentum et. Eros in cursus turpis massa tincidunt. Leo in vitae turpis massa sed elementum tempus egestas. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.",
@@ -115,7 +115,7 @@ const Map = () => {
         properties: {
           id: "item-138",
           title: "Orci varius natoque penatibus",
-          excert:
+          address:
             "Praesent ullamcorper dui molestie augue hendrerit finibus. Praesent ut ipsum nulla.",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus in ornare quam viverra orci sagittis eu volutpat. Diam ut venenatis tellus in metus vulputate eu. Quam quisque id diam vel quam elementum pulvinar etiam. Imperdiet massa tincidunt nunc pulvinar. Velit aliquet sagittis id consectetur purus ut. Libero enim sed faucibus turpis in eu mi bibendum. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc.",
@@ -149,7 +149,7 @@ const Map = () => {
         properties: {
           id: "item-139",
           title: "Suspendisse gravida turpis",
-          excert:
+          address:
             "Orci varius natoque penatibus et magnis dis parturient montes.",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus in ornare quam viverra orci sagittis eu volutpat. Diam ut venenatis tellus in metus vulputate eu. Quam quisque id diam vel quam elementum pulvinar etiam. Imperdiet massa tincidunt nunc pulvinar. Velit aliquet sagittis id consectetur purus ut. Libero enim sed faucibus turpis in eu mi bibendum. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc.",
@@ -183,7 +183,7 @@ const Map = () => {
         properties: {
           id: "item-140",
           title: "Orci varius natoque penatibus",
-          excert:
+          address:
             "Praesent ullamcorper dui molestie augue hendrerit finibus. Praesent ut ipsum nulla.",
           description:
             "Molestie a iaculis at erat pellentesque adipiscing commodo elit at. Diam sit amet nisl suscipit adipiscing. Consectetur adipiscing elit duis tristique sollicitudin. In tellus integer feugiat scelerisque varius. Tortor consequat id porta nibh venenatis cras. Mi sit amet mauris commodo. Tellus orci ac auctor augue mauris augue neque gravida. Non diam phasellus vestibulum lorem sed. Et netus et malesuada fames ac.",
@@ -217,7 +217,7 @@ const Map = () => {
         properties: {
           id: "item-141",
           title: "Lorem ipsum dolor sit amet",
-          excert:
+          address:
             "Orci varius natoque penatibus et magnis dis parturient montes.",
           description:
             "Molestie a iaculis at erat pellentesque adipiscing commodo elit at. Diam sit amet nisl suscipit adipiscing. Consectetur adipiscing elit duis tristique sollicitudin. In tellus integer feugiat scelerisque varius. Tortor consequat id porta nibh venenatis cras. Mi sit amet mauris commodo. Tellus orci ac auctor augue mauris augue neque gravida. Non diam phasellus vestibulum lorem sed. Et netus et malesuada fames ac.",
@@ -251,7 +251,7 @@ const Map = () => {
         properties: {
           id: "item-142",
           title: "Suspendisse gravida turpis",
-          excert:
+          address:
             "Suspendisse gravida turpis sed tempor cursus. Donec nec ultrices felis.",
           description:
             "Erat velit scelerisque in dictum non consectetur a erat nam. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Pretium aenean pharetra magna ac placerat vestibulum lectus. Augue mauris augue neque gravida in fermentum et. Eros in cursus turpis massa tincidunt. Leo in vitae turpis massa sed elementum tempus egestas. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.",
@@ -285,7 +285,7 @@ const Map = () => {
         properties: {
           id: "item-143",
           title: "Donec nec ultrices felis.",
-          excert:
+          address:
             "Suspendisse gravida turpis sed tempor cursus. Donec nec ultrices felis.",
           description:
             "Erat velit scelerisque in dictum non consectetur a erat nam. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Pretium aenean pharetra magna ac placerat vestibulum lectus. Augue mauris augue neque gravida in fermentum et. Eros in cursus turpis massa tincidunt. Leo in vitae turpis massa sed elementum tempus egestas. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.",
@@ -319,7 +319,7 @@ const Map = () => {
         properties: {
           id: "item-144",
           title: "Lorem ipsum dolor sit amet",
-          excert:
+          address:
             "Orci varius natoque penatibus et magnis dis parturient montes.",
           description:
             "Molestie a iaculis at erat pellentesque adipiscing commodo elit at. Diam sit amet nisl suscipit adipiscing. Consectetur adipiscing elit duis tristique sollicitudin. In tellus integer feugiat scelerisque varius. Tortor consequat id porta nibh venenatis cras. Mi sit amet mauris commodo. Tellus orci ac auctor augue mauris augue neque gravida. Non diam phasellus vestibulum lorem sed. Et netus et malesuada fames ac.",
@@ -353,7 +353,7 @@ const Map = () => {
         properties: {
           id: "item-145",
           title: "Lorem ipsum dolor sit amet",
-          excert:
+          address:
             "Praesent ullamcorper dui molestie augue hendrerit finibus. Praesent ut ipsum nulla.",
           description:
             "Molestie a iaculis at erat pellentesque adipiscing commodo elit at. Diam sit amet nisl suscipit adipiscing. Consectetur adipiscing elit duis tristique sollicitudin. In tellus integer feugiat scelerisque varius. Tortor consequat id porta nibh venenatis cras. Mi sit amet mauris commodo. Tellus orci ac auctor augue mauris augue neque gravida. Non diam phasellus vestibulum lorem sed. Et netus et malesuada fames ac.",
@@ -387,7 +387,7 @@ const Map = () => {
         properties: {
           id: "item-146",
           title: "Suspendisse gravida turpis",
-          excert:
+          address:
             "Suspendisse gravida turpis sed tempor cursus. Donec nec ultrices felis.",
           description:
             "Erat velit scelerisque in dictum non consectetur a erat nam. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Pretium aenean pharetra magna ac placerat vestibulum lectus. Augue mauris augue neque gravida in fermentum et. Eros in cursus turpis massa tincidunt. Leo in vitae turpis massa sed elementum tempus egestas. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.",
@@ -421,7 +421,7 @@ const Map = () => {
         properties: {
           id: "item-147",
           title: "Orci varius natoque penatibus",
-          excert: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           description:
             "Molestie a iaculis at erat pellentesque adipiscing commodo elit at. Diam sit amet nisl suscipit adipiscing. Consectetur adipiscing elit duis tristique sollicitudin. In tellus integer feugiat scelerisque varius. Tortor consequat id porta nibh venenatis cras. Mi sit amet mauris commodo. Tellus orci ac auctor augue mauris augue neque gravida. Non diam phasellus vestibulum lorem sed. Et netus et malesuada fames ac.",
           images: [
@@ -544,7 +544,7 @@ const Map = () => {
         (t) => t.slug === properties.type
       )[0].name;
 
-      let { title, images, excert, typeName, rooms, area, rent, deposit } =
+      let { title, images, address, typeName, rooms, area, rent, deposit } =
         properties;
 
       let html = `<div class="sc-card sc-borderless">
@@ -561,11 +561,13 @@ const Map = () => {
           <table class="sc-table">
             <tbody>
               <tr style="background-color:black; color:white;">
-                <td>${excert}</td>
+                <td>${address}</td>
               </tr>
 
               <tr>
-                <td>📍LAT: ${Number(coordinates[0]).toFixed(4)} N, ${Number(coordinates[1]).toFixed(4)} E</td>
+                <td>📍LAT: ${Number(coordinates[0]).toFixed(4)} N, ${Number(
+        coordinates[1]
+      ).toFixed(4)} E</td>
               </tr>
 
               <tr style="background-color:black; color:white;">

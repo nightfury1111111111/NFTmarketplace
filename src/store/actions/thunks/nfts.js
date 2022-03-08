@@ -69,9 +69,9 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
       const isOwned = currentAccount === owner;
       const coordinates = JSON.parse(nftInfo).geometry.coordinates;
       const type = JSON.parse(nftInfo).properties.type;
-      const excert = JSON.parse(nftInfo).properties.excert;
+      const address = JSON.parse(nftInfo).properties.address;
       const rooms = JSON.parse(nftInfo).properties.rooms;
-      const images = JSON.parse(nftInfo).properties.images;
+      // const images = JSON.parse(nftInfo).properties.images;
       const description = JSON.parse(nftInfo).properties.description;
       const title = JSON.parse(nftInfo).properties.title;
       const svgData = await connectedAuctionContract.getSVG(
@@ -85,8 +85,8 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
         owner,
         isOwned,
         description,
-        excert,
-        images,
+        address,
+        // images,
         rooms,
         type,
         longitude: coordinates[0],

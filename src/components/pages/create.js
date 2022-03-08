@@ -21,7 +21,7 @@ const CreatePage = () => {
   const [original, setOriginal] = useState();
   const [originalURL, setOriginalURL] = useState([]);
   const [title, setTitle] = useState("");
-  const [excert, setExcert] = useState("");
+  const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
   const [rooms, setRooms] = useState(0);
@@ -123,7 +123,7 @@ const CreatePage = () => {
       properties: {
         id: `item-${Number(id)}`,
         title,
-        excert,
+        address,
         description,
         images,
         type,
@@ -229,7 +229,7 @@ const CreatePage = () => {
             <div className="col-lg-7 offset-lg-1 mb-5">
               <form id="form-create-item" className="form-border" action="#">
                 <div className="field-set">
-                  <div className="imageUpload">
+                  {/* <div className="imageUpload">
                     <div>
                       <div className="thumbnailImage">
                         <h5>Upload thumbnail image</h5>
@@ -294,7 +294,7 @@ const CreatePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="spacer-single"></div>
 
@@ -312,16 +312,16 @@ const CreatePage = () => {
 
                   <div className="spacer-10"></div>
 
-                  <h5>Excert</h5>
+                  <h5>Address</h5>
                   <input
                     type="text"
                     name="item_title"
                     id="item_title"
                     className="form-control"
                     onChange={(e) => {
-                      setExcert(e.target.value);
+                      setAddress(e.target.value);
                     }}
-                    value={excert}
+                    value={address}
                   />
 
                   <div className="spacer-10"></div>
@@ -474,10 +474,10 @@ const CreatePage = () => {
               </form>
             </div>
 
-            <div className="col-lg-3 col-sm-6 col-xs-12 previewImage">
+          {/*   <div className="col-lg-3 col-sm-6 col-xs-12 previewImage">
               <h5>Preview picture</h5>
               <div className="nft__item m-0">
-                {/* <div className="de_countdown">
+                <div className="de_countdown">
                   <Clock deadline="December, 30, 2022" />
                 </div> */}
                 {/* <div className="author_list_pp">
@@ -490,7 +490,7 @@ const CreatePage = () => {
                     <i className="fa fa-check"></i>
                   </span>
                 </div> */}
-                <div className="nft__item_wrap">
+                {/* <div className="nft__item_wrap">
                   <span>
                     <img
                       // src="./img/collections/coll-item-3.jpg"
@@ -516,10 +516,10 @@ const CreatePage = () => {
                   <div className="nft__item_like">
                     <i className="fa fa-heart"></i>
                     <span>50</span>
-                  </div> */}
+                  </div> 
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </div>

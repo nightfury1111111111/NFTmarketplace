@@ -21,6 +21,9 @@ const GlobalStyles = createGlobalStyle`
 const NFTCardWrapper = styled.div`
   width: 100%;
   height: 310px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
   color: white;
   text-align: center;
   font-family: "Poppins";
@@ -137,7 +140,7 @@ const ItemDetail = () => {
         >
           <section className="container" style={{ color: "white" }}>
             <div className="row mt-md-5 pt-md-4">
-              <div className="col-md-4 text-center">
+              <div className="col-md-6 text-center">
                 {/* <img
                   src="../img/items/big-1.jpg"
                   className="img-fluid img-rounded mb-sm-30"
@@ -153,21 +156,21 @@ const ItemDetail = () => {
                   )}
                   {nftDetail.isOwned ? (
                     <div style={{ marginTop: "40%" }}>
-                      lat: {Number(nftDetail.latitude).toFixed(4)} N, long:
+                      📍lat: {Number(nftDetail.latitude).toFixed(4)} N, long:
                       {Number(nftDetail.longitude).toFixed(4)} E
                     </div>
                   ) : (
                     <div style={{ marginTop: "49%" }}>
-                      lat: {Number(nftDetail.latitude).toFixed(4)} N, long:
+                      📍lat: {Number(nftDetail.latitude).toFixed(4)} N, long:
                       {Number(nftDetail.longitude).toFixed(4)} E
                     </div>
                   )}
-                  <div>ID: {nftDetail.id}</div>
+                  <div>🆔ID: {nftDetail.id}</div>
                   <div>💙NFT ESTATE: {nftDetail.type}</div>
                 </NFTCardWrapper>
               </div>
-              <div className="col-md-8">
-                <div className="nftTitle">{nftDetail.title}</div>
+              <div className="col-md-6">
+                {/* <div className="nftTitle">{nftDetail.title}</div>
                 <div className="row">
                   <div className="col-md-6">
                     <p>🏁 {nftDetail.address}</p>
@@ -187,29 +190,44 @@ const ItemDetail = () => {
                     <p>💵 USD: </p>
                   </div>
                 </div>
-                {/* <div className="item_info">
-                  Auctions ends in
+                <div>sdfsdf</div> */}
+                <div className="item_info">
+                  ⏰ Auctions ends in
                   <div className="de_countdown">
                     <Clock deadline={nft.item_deadline} />
                   </div>
+                  <div className="nftTitle">{nftDetail.title}</div>
                   <div className="item_info_counts">
                     <div className="item_info_type">
-                      <i className="fa fa-image"></i>
-                      {nftDetail.type}
+                      {/* <i className="fa fa-image"></i> */}
+                      💙 {nftDetail.type}
                     </div>
-                    <div className="item_info_views">
+                    {/* <div className="item_info_views">
                       <i className="fa fa-eye"></i>
                       {nft.item_views}
                     </div>
                     <div className="item_info_like">
                       <i className="fa fa-heart"></i>
                       {nft.item_likes}
-                    </div>
+                    </div> */}
                   </div>
-                  <p>{nftDetail.description}</p>
-                  <h6>Creator</h6>
+                  <p>🏁 {nftDetail.address}</p>
                   <div className="item_author">
-                    <div className="author_list_pp">
+                    <p>💼 Status : {nftDetail.status}</p>
+                    <p>💰 Owned by : {getCompressed(nftDetail.owner)}</p>
+                    <p>💿 One : </p>
+                    <p>💵 USD : </p>
+                    <p>
+                      {nftDetail.description} LUV NFTs are unique SPL tokens on
+                      Solana Blockchain, that bring multi-utility benefits to
+                      their holders. Our LUV NFT Estate platform uses ERC-721
+                      tokens created on Ethereum blockchain by way of
+                      Harmony.One. Think of a LUV NFT as a crypto gift card with
+                      an interest rate better than your bank.
+                    </p>
+                    <p>💸 Latest Bid : </p>
+                    <p>🤑 Latest Bidder : </p>
+                    {/* <div className="author_list_pp">
                       <span>
                         <img
                           className="lazy"
@@ -220,8 +238,8 @@ const ItemDetail = () => {
                       </span>
                     </div>
                     <div className="author_list_info">
-                      <span>{nft.author && nft.author.username}</span>
-                    </div>
+                      <span>{nftDetail.status}</span>
+                    </div> */}
                   </div>
                   <div className="spacer-40"></div>
                   <div className="de_tab">
@@ -234,7 +252,7 @@ const ItemDetail = () => {
                       </li>
                     </ul>
 
-                    <div className="de_tab_content">
+                    {/* <div className="de_tab_content">
                       {openMenu && (
                         <div className="tab-1 onStep fadeIn">
                           {nft.bids &&
@@ -288,12 +306,12 @@ const ItemDetail = () => {
                             ))}
                         </div>
                       )}
-                    </div>
+                    </div> */}
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
-            <div className="row mt-md-5 pt-md-4">
+            {/* <div className="row mt-md-5 pt-md-4">
               <div className="col-md-6">
                 <div className="subtitle">Description</div>
                 <p>{nftDetail.description}</p>
@@ -301,7 +319,7 @@ const ItemDetail = () => {
               <div className="col-md-6">
                 <div className="subtitle">Bids</div>
               </div>
-            </div>
+            </div> */}
           </section>
         </div>
       )}

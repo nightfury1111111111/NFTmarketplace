@@ -100,29 +100,37 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
       priceTmpList.push(...categoryTmpList);
     }
 
-    if (selectedStatus == "BuyNow") {
-      priceTmpList.map((nft) => {
-        if (nft.minPrice == 0 && nft.buyNowPrice > 0) {
-          statusTmpList.push(nft);
-        }
-      });
-    } else if (selectedStatus == "OnAuction") {
-      priceTmpList.map((nft) => {
-        if (nft.minPrice > 0 && nft.buyNowPrice > nft.minPrice) {
-          statusTmpList.push(nft);
-        }
-      });
-    } else if (selectedStatus == "OnRent") {
-      priceTmpList.map((nft) => {
-        if (nft.rentPrice > 0) {
-          statusTmpList.push(nft);
-        }
-      });
-    } else if (selectedStatus == "NotForSale") {
-      priceTmpList.map((nft) => {
-        if (nft.rentPrice == 0 && nft.buyNowPrice == 0) {
-          statusTmpList.push(nft);
-        }
+    // if (selectedStatus == "BuyNow") {
+    //   priceTmpList.map((nft) => {
+    //     if (nft.minPrice == 0 && nft.buyNowPrice > 0) {
+    //       statusTmpList.push(nft);
+    //     }
+    //   });
+    // } else if (selectedStatus == "OnAuction") {
+    //   priceTmpList.map((nft) => {
+    //     if (nft.minPrice > 0 && nft.buyNowPrice > nft.minPrice) {
+    //       statusTmpList.push(nft);
+    //     }
+    //   });
+    // } else if (selectedStatus == "OnRent") {
+    //   priceTmpList.map((nft) => {
+    //     if (nft.rentPrice > 0) {
+    //       statusTmpList.push(nft);
+    //     }
+    //   });
+    // } else if (selectedStatus == "NotForSale") {
+    //   priceTmpList.map((nft) => {
+    //     if (nft.rentPrice == 0 && nft.buyNowPrice == 0) {
+    //       statusTmpList.push(nft);
+    //     }
+    //   });
+    // } else {
+    //   statusTmpList.push(...priceTmpList);
+    // }
+
+    if (selectedStatus && selectedStatus != "" && selectedStatus != "all") {
+      nfts.map((nft) => {
+        if (nft.status === selectedStatus) statusTmpList.push(nft);
       });
     } else {
       statusTmpList.push(...priceTmpList);

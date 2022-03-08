@@ -67,6 +67,18 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
       const { lender, borrower, period, price, collateral, extraPay, rentEnd } =
         rentInfo;
       const isOwned = currentAccount === owner;
+
+      //check status
+      let status;
+      if (minPrice == 0 && buyNowPrice > 0) {
+        status = "BuyNow";
+      } else if (minPrice > 0 && buyNowPrice > minPrice) {
+        status = "OnAuction";
+      } else if (price > 0) {
+        status = "OnRent";
+      } else if (price == 0 && buyNowPrice == 0) {
+        status = "NotForSale";
+      }
       const coordinates = JSON.parse(nftInfo).geometry.coordinates;
       const type = JSON.parse(nftInfo).properties.type;
       const address = JSON.parse(nftInfo).properties.address;
@@ -92,6 +104,7 @@ export const fetchNftsBreakdown = () => async (dispatch, getState) => {
         longitude: coordinates[0],
         latitude: coordinates[1],
         title,
+        status,
         //auctionInfo
         bidIncreasePercentage,
         auctionBidPeriod,

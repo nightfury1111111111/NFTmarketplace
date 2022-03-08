@@ -94,16 +94,16 @@ const NftCard = ({
             {nft.isOwned && <AnimatedDiv>OWNED BY YOU</AnimatedDiv>}
             {nft.isOwned ? (
               <div style={{ marginTop: "40%" }}>
-                LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
+                📍LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
                 {Number(nft.longitude).toFixed(4)} E
               </div>
             ) : (
               <div style={{ marginTop: "49%" }}>
-                LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
+                📍LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
                 {Number(nft.longitude).toFixed(4)} E
               </div>
             )}
-            <div>ID: {nft.id}</div>
+            <div>🆔ID: {nft.id}</div>
             <div>💙NFT ESTATE: {nft.type}</div>
           </NFTCardWrapper>
         </Link>

@@ -26,7 +26,7 @@ const NFTCardWrapper = styled.div`
       switch (props.type) {
         case "land":
           return "img/Element_1.png";
-        case "apartment":
+        case "monument":
           return "img/Element_5.png";
         case "house":
           return "img/Element_2.png";
@@ -36,6 +36,8 @@ const NFTCardWrapper = styled.div`
           return "img/Element_4.png";
         case "store":
           return "img/Element_6.png";
+        case "apartment":
+          return "img/Element_7.png";
         default:
           return;
       }
@@ -43,7 +45,7 @@ const NFTCardWrapper = styled.div`
     url(${(props) => props.bgPath});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 50%, 100% 100%;
+  background-size: 37%, 100% 100%;
   cursor: pointer;
 `;
 
@@ -98,7 +100,7 @@ const NftCard = ({
                 {Number(nft.longitude).toFixed(4)} E
               </div>
             ) : (
-              <div style={{ marginTop: "49%" }}>
+              <div style={{ marginTop: "47%" }}>
                 📍LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
                 {Number(nft.longitude).toFixed(4)} E
               </div>

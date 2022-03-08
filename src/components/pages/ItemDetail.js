@@ -1,12 +1,32 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { ethers } from "ethers";
 // import { useLocation } from "react-router-dom";
 import Clock from "../components/Clock";
 import Footer from "../components/footer";
 import { createGlobalStyle } from "styled-components";
 import * as selectors from "../../store/selectors";
 import { fetchNftDetail } from "../../store/actions/thunks";
+
+import LuvNFT from "../../abi/LuvNFT.json";
+import Auction from "../../abi/NFTAuction.json";
+
+const nftContractAddress = process.env.REACT_APP_NFTCONTRACT_ADDERSS;
+const auctionContractAddress = process.env.REACT_APP_AUCTIONCONTRACT_ADDRESS;
+const zeroAddress = "0x0000000000000000000000000000000000000000";
+
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const auctionContract = new ethers.Contract(
+  auctionContractAddress,
+  Auction.abi,
+  provider.getSigner()
+);
+const nftContract = new ethers.Contract(
+  nftContractAddress,
+  LuvNFT.abi,
+  provider.getSigner()
+);
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.white {
@@ -31,7 +51,7 @@ const NFTCardWrapper = styled.div`
       switch (props.type) {
         case "land":
           return "/img/Element_1.png";
-        case "apartment":
+        case "monument":
           return "/img/Element_5.png";
         case "house":
           return "/img/Element_2.png";
@@ -41,6 +61,8 @@ const NFTCardWrapper = styled.div`
           return "/img/Element_4.png";
         case "store":
           return "/img/Element_6.png";
+        case "apartment":
+          return "/img/Element_7.png";
         default:
           return;
       }
@@ -48,8 +70,7 @@ const NFTCardWrapper = styled.div`
     url(${(props) => props.bgPath});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 50%, 100% 100%;
-  cursor: pointer;
+  background-size: 37%, 100% 100%;
 `;
 
 const AnimatedDiv = styled.div`
@@ -77,9 +98,17 @@ const AnimatedDiv = styled.div`
 `;
 
 const ItemDetail = () => {
-  const [openMenu, setOpenMenu] = React.useState(true);
+  const [openMenu, setOpenMenu] = React.useState(false);
   const [openMenu1, setOpenMenu1] = React.useState(false);
+  const [openMenu2, setOpenMenu2] = React.useState(false);
   const [nftDetail, setNftDetail] = React.useState();
+  const [salePrice, setSalePrice] = useState("");
+  const [auctionMinPrice, setAuctionMinPrice] = useState("");
+  const [auctionBuyNowPrice, setAuctionBuyNowPrice] = useState("");
+  const [auctionPeriod, setAuctionPeriod] = useState("");
+  const [auctionBidIncrease, setAuctionBidIncrease] = useState("");
+  const [rentPrice, setRentPrice] = useState("");
+  const [rentPeriod, setRentPeriod] = useState("");
 
   // let { id } = useLocation();
   //get param;; don't know the way to get params so use this way. don't use this if possible
@@ -89,14 +118,26 @@ const ItemDetail = () => {
   const handleBtnClick = () => {
     setOpenMenu(!openMenu);
     setOpenMenu1(false);
+    setOpenMenu2(false);
     document.getElementById("Mainbtn").classList.add("active");
     document.getElementById("Mainbtn1").classList.remove("active");
+    document.getElementById("Mainbtn2").classList.remove("active");
   };
   const handleBtnClick1 = () => {
     setOpenMenu1(!openMenu1);
+    setOpenMenu2(false);
     setOpenMenu(false);
     document.getElementById("Mainbtn1").classList.add("active");
     document.getElementById("Mainbtn").classList.remove("active");
+    document.getElementById("Mainbtn2").classList.remove("active");
+  };
+  const handleBtnClick2 = () => {
+    setOpenMenu2(!openMenu2);
+    setOpenMenu1(false);
+    setOpenMenu(false);
+    document.getElementById("Mainbtn2").classList.add("active");
+    document.getElementById("Mainbtn").classList.remove("active");
+    document.getElementById("Mainbtn1").classList.remove("active");
   };
 
   const dispatch = useDispatch();
@@ -120,6 +161,56 @@ const ItemDetail = () => {
   const getCompressed = (addr) => {
     const len = addr.length;
     return addr.substring(0, 5) + "..." + addr.substring(len - 3, len);
+  };
+
+  //integrate with smart contract
+  const createAuction = async () => {
+    // let priceToWei = toWei(price, Units.one);
+    // console.log(price, priceToWei)
+
+    const previousFee = await auctionContract.managerFee();
+    const manager = await auctionContract.manager();
+    const result = await auctionContract.createNewNftAuction(
+      nftDetail.id,
+      zeroAddress,
+      auctionMinPrice,
+      auctionBuyNowPrice,
+      auctionPeriod * 3600,
+      auctionBidIncrease,
+      // priceToWei,
+      [manager],
+      [previousFee]
+    );
+    console.log("result", result);
+  };
+
+  const createSale = async () => {
+    // let priceToWei = toWei(price, Units.one);
+    // console.log(price, priceToWei)
+
+    const previousFee = await auctionContract.managerFee();
+    const manager = await auctionContract.manager();
+    const result = await auctionContract.createSale(
+      nftDetail.id,
+      zeroAddress,
+      salePrice,
+      // priceToWei,
+      [manager],
+      [previousFee]
+    );
+    console.log("result", result);
+  };
+  const createRent = async () => {
+    // let priceToWei = toWei(price, Units.one);
+    // console.log(price, priceToWei)
+    const result = await auctionContract.lend(
+      nftDetail.id,
+      rentPeriod * 3600,
+      0,
+      rentPrice,
+      0
+    );
+    console.log("result", result);
   };
 
   return (
@@ -160,7 +251,7 @@ const ItemDetail = () => {
                       {Number(nftDetail.longitude).toFixed(4)} E
                     </div>
                   ) : (
-                    <div style={{ marginTop: "49%" }}>
+                    <div style={{ marginTop: "47%" }}>
                       📍lat: {Number(nftDetail.latitude).toFixed(4)} N, long:
                       {Number(nftDetail.longitude).toFixed(4)} E
                     </div>
@@ -242,72 +333,161 @@ const ItemDetail = () => {
                     </div> */}
                   </div>
                   <div className="spacer-40"></div>
-                  <div className="de_tab">
-                    <ul className="de_nav">
-                      <li id="Mainbtn" className="active">
-                        <span onClick={handleBtnClick}>Bids</span>
-                      </li>
-                      <li id="Mainbtn1" className="">
-                        <span onClick={handleBtnClick1}>History</span>
-                      </li>
-                    </ul>
+                  {nftDetail.status === "NotForSale" ? (
+                    nftDetail.isOwned ? (
+                      <div className="de_tab">
+                        <ul className="de_nav">
+                          <li id="Mainbtn" className="active">
+                            <span onClick={handleBtnClick}>SALE</span>
+                          </li>
+                          <li id="Mainbtn1" className="">
+                            <span onClick={handleBtnClick1}>AUCTION</span>
+                          </li>
+                          <li id="Mainbtn2" className="">
+                            <span onClick={handleBtnClick2}>RENT</span>
+                          </li>
+                        </ul>
 
-                    {/* <div className="de_tab_content">
-                      {openMenu && (
-                        <div className="tab-1 onStep fadeIn">
-                          {nft.bids &&
-                            nft.bids.map((bid, index) => (
-                              <div className="p_list" key={index}>
-                                <div className="p_list_pp">
-                                  <span>
-                                    <img
-                                      className="lazy"
-                                      src={bid.avatar}
-                                      alt=""
-                                    />
-                                    <i className="fa fa-check"></i>
-                                  </span>
-                                </div>
-                                <div className="p_list_info">
-                                  Bid {bid.is_author && "accepted"}{" "}
-                                  <b>{bid.value} ETH</b>
-                                  <span>
-                                    by <b>{bid.username}</b> at {bid.timestamp}
-                                  </span>
-                                </div>
-                              </div>
-                            ))}
-                        </div>
-                      )}
+                        <div className="de_tab_content">
+                          {openMenu && (
+                            <div
+                              className="tab-1 onStep fadeIn"
+                              style={{ paddingBottom: "25px" }}
+                            >
+                              <div className="spacer-single"></div>
+                              <h5>PRICE</h5>
+                              <input
+                                type="number"
+                                name="item_title"
+                                id="item_title"
+                                className="form-control"
+                                onChange={(e) => {
+                                  setSalePrice(e.target.value);
+                                }}
+                                value={salePrice}
+                              />
+                              <div className="spacer-10"></div>
+                              <input
+                                type="button"
+                                id="submit"
+                                className="btn-main"
+                                value="CREATE SALE"
+                                onClick={createSale}
+                              />
+                            </div>
+                          )}
 
-                      {openMenu1 && (
-                        <div className="tab-2 onStep fadeIn">
-                          {nft.history &&
-                            nft.history.map((bid, index) => (
-                              <div className="p_list" key={index}>
-                                <div className="p_list_pp">
-                                  <span>
-                                    <img
-                                      className="lazy"
-                                      src={bid.avatar}
-                                      alt=""
-                                    />
-                                    <i className="fa fa-check"></i>
-                                  </span>
-                                </div>
-                                <div className="p_list_info">
-                                  Bid {bid.is_author && "accepted"}{" "}
-                                  <b>{bid.value} ETH</b>
-                                  <span>
-                                    by <b>{bid.username}</b> at {bid.timestamp}
-                                  </span>
-                                </div>
-                              </div>
-                            ))}
+                          {openMenu1 && (
+                            <div
+                              className="tab-2 onStep fadeIn"
+                              style={{ paddingBottom: "25px" }}
+                            >
+                              <div className="spacer-single"></div>
+                              <h5>MIN PRICE</h5>
+                              <input
+                                type="number"
+                                name="item_title"
+                                id="item_title"
+                                className="form-control"
+                                onChange={(e) => {
+                                  setAuctionMinPrice(e.target.value);
+                                }}
+                                value={auctionMinPrice}
+                              />
+                              <div className="spacer-10"></div>
+                              <h5>BUY NOW PRICE</h5>
+                              <input
+                                type="number"
+                                name="item_title"
+                                id="item_title"
+                                className="form-control"
+                                onChange={(e) => {
+                                  setAuctionBuyNowPrice(e.target.value);
+                                }}
+                                value={auctionBuyNowPrice}
+                              />
+                              <div className="spacer-10"></div>
+                              <h5>BID PERIOD (hour)</h5>
+                              <input
+                                type="number"
+                                name="item_title"
+                                id="item_title"
+                                className="form-control"
+                                onChange={(e) => {
+                                  setAuctionPeriod(e.target.value);
+                                }}
+                                value={auctionPeriod}
+                              />
+                              <div className="spacer-10"></div>
+                              <h5>BID INCREASE PERCENTAGE (* 0.01%)</h5>
+                              <input
+                                type="number"
+                                name="item_title"
+                                id="item_title"
+                                className="form-control"
+                                onChange={(e) => {
+                                  setAuctionBidIncrease(e.target.value);
+                                }}
+                                value={auctionBidIncrease}
+                              />
+                              <div className="spacer-10"></div>
+                              <input
+                                type="button"
+                                id="submit"
+                                className="btn-main"
+                                value="CREATE AUCTION"
+                                onClick={createAuction}
+                              />
+                            </div>
+                          )}
+
+                          {openMenu2 && (
+                            <div
+                              className="tab-2 onStep fadeIn"
+                              style={{ paddingBottom: "25px" }}
+                            >
+                              <div className="spacer-single"></div>
+                              <h5>PRICE</h5>
+                              <input
+                                type="number"
+                                name="item_title"
+                                id="item_title"
+                                className="form-control"
+                                onChange={(e) => {
+                                  setRentPrice(e.target.value);
+                                }}
+                                value={rentPrice}
+                              />
+                              <div className="spacer-10"></div>
+                              <h5>PERIOD (hour)</h5>
+                              <input
+                                type="number"
+                                name="item_title"
+                                id="item_title"
+                                className="form-control"
+                                onChange={(e) => {
+                                  setRentPeriod(e.target.value);
+                                }}
+                                value={rentPeriod}
+                              />
+                              <div className="spacer-10"></div>
+                              <input
+                                type="button"
+                                id="submit"
+                                className="btn-main"
+                                value="CREATE RENT"
+                                onClick={createRent}
+                              />
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div> */}
-                  </div>
+                      </div>
+                    ) : (
+                      <></>
+                    )
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             </div>

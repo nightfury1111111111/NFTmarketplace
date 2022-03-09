@@ -56,12 +56,12 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   .navbar {
-    border-bottom: solid 1px rgba(255, 255, 255, .1) !important;
+    // border-bottom: solid 1px rgba(255, 255, 255, .1) !important;
   }
 `;
 
 const logintwo = () => (
-  <div>
+  <div style={{ fontFamily: "Poppins", color: "white", background: "#FAE1DF" }}>
     <GlobalStyles />
 
     <section className="jumbotron breadcumb no-bg">

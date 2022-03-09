@@ -77,7 +77,7 @@ const GlobalStyles = createGlobalStyle`
   .nft_coll_pp i, .feature-box.style-3 i, 
   footer.footer-light #form_subscribe #btn-subscribe i, 
   #scroll-to-top div{
-    background: #8364e2;
+    background: #69E4AD;
   }
   footer.footer-light .subfooter .social-icons span i{
     background: #403f83;
@@ -296,6 +296,9 @@ const GlobalStyles = createGlobalStyle`
     .gridItem{
       height:580px;
     }
+    .faqQuestion, .faqanswer {
+      font-size: 15px;
+    }
   }
 `;
 
@@ -369,6 +372,7 @@ const Home = () => {
                 color: "black",
                 fontSize: "16px",
                 marginTop: "40px",
+                fontFamily: "Poppins",
                 marginLeft: "auto",
                 marginRight: "auto",
                 height: "40px",

@@ -228,7 +228,7 @@ const CreatePage = () => {
           <div className="row reverseContainer">
             <div className="col-lg-7 offset-lg-1 mb-5">
               <form id="form-create-item" className="form-border" action="#">
-                <div className="field-set">
+                <div className="field-set" style={{ fontFamily: "Poppins" }}>
                   {/* <div className="imageUpload">
                     <div>
                       <div className="thumbnailImage">
@@ -474,13 +474,13 @@ const CreatePage = () => {
               </form>
             </div>
 
-          {/*   <div className="col-lg-3 col-sm-6 col-xs-12 previewImage">
+            {/*   <div className="col-lg-3 col-sm-6 col-xs-12 previewImage">
               <h5>Preview picture</h5>
               <div className="nft__item m-0">
                 <div className="de_countdown">
                   <Clock deadline="December, 30, 2022" />
                 </div> */}
-                {/* <div className="author_list_pp">
+            {/* <div className="author_list_pp">
                   <span>
                     <img
                       className="lazy"
@@ -490,7 +490,7 @@ const CreatePage = () => {
                     <i className="fa fa-check"></i>
                   </span>
                 </div> */}
-                {/* <div className="nft__item_wrap">
+            {/* <div className="nft__item_wrap">
                   <span>
                     <img
                       // src="./img/collections/coll-item-3.jpg"

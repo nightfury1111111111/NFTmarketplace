@@ -15,7 +15,7 @@
   margin-left: calc(-0.5 * var(--icon-sm));
   margin-top: calc(-0.5 * (var(--icon-sm) + var(--border-thickness)));
   background: var(--color-lighter);
-  border: var(--border-thickness) solid var(--color-primary-light);
+  border: var(--border-thickness) solid #69E4AD;
   border-radius: 100%;
   box-shadow: var(--box-shadow-md);
   cursor: pointer;
@@ -26,19 +26,19 @@
 
 .input-range__slider:active {
   background: var(--color-grey-sm);
-  border-color: var(--color-seocndary-light);
+  border-color: #B18FCF;
   box-shadow: var(--box-shadow-lg);
 }
 
 .input-range__slider:focus {
   background: var(--color-grey-sm);
-  border-color: var(--color-seocndary-light);
+  border-color: #B18FCF;
   box-shadow: var(--box-shadow-lg);
 }
 
 .input-range__slider:hover {
   background: var(--color-grey-sm);
-  border-color: var(--color-seocndary-light);
+  border-color: #B18FCF;
   box-shadow: var(--box-shadow-lg);
 }
 
@@ -90,7 +90,7 @@
   display: block;
   position: relative;
   height: var(--border-thickness);
-  background: var(--color-primary-light);
+  background: #69E4AD;
   transition: all var(--transition-sm);
   cursor: pointer;
 }
@@ -108,7 +108,7 @@
 }
 
 .input-range__track--active {
-  background: var(--color-secondary-light);
+  background: #B18FCF;
 }
 
 /*# sourceMappingURL=index.css.map */

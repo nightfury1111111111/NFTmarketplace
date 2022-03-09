@@ -36,8 +36,22 @@ const NFTCardWrapper = styled.div`
           return "img/Element_4.png";
         case "store":
           return "img/Element_6.png";
-        case "apartment":
+        case "office":
           return "img/Element_7.png";
+        case "bank":
+          return "img/Element_8.png";
+        case "car":
+          return "img/Element_9.png";
+        case "restaurant":
+          return "img/Element_10.png";
+        case "taxi":
+          return "img/Element_11.png";
+        case "yacht":
+          return "img/Element_12.png";
+        case "boat":
+          return "img/Element_13.png";
+        case "service":
+          return "img/Element_14.png";
         default:
           return;
       }
@@ -45,8 +59,9 @@ const NFTCardWrapper = styled.div`
     url(${(props) => props.bgPath});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 37%, 100% 100%;
+  background-size: 28%, 100% 100%;
   cursor: pointer;
+  position: relative;
 `;
 
 const AnimatedDiv = styled.div`
@@ -92,21 +107,16 @@ const NftCard = ({
       <div className="nftGradientCard">
         <Link to={"/nft/" + nft.id} style={{ textDecoration: "none" }}>
           <NFTCardWrapper bgPath={nft.svgData} type={nft.type}>
-            <div className="cardTitle">{nft.title}</div>
+            <div className="cardTitle">{(nft.title).toUpperCase()}</div>
             {nft.isOwned && <AnimatedDiv>OWNED BY YOU</AnimatedDiv>}
-            {nft.isOwned ? (
-              <div style={{ marginTop: "40%" }}>
-                📍LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
+            <div className="cardInfo">
+              <div>🆔ID: {nft.id}</div>
+              <div>
+                📍lat: {Number(nft.latitude).toFixed(4)} N, long:
                 {Number(nft.longitude).toFixed(4)} E
               </div>
-            ) : (
-              <div style={{ marginTop: "47%" }}>
-                📍LAT: {Number(nft.latitude).toFixed(4)} N, LONG:
-                {Number(nft.longitude).toFixed(4)} E
-              </div>
-            )}
-            <div>🆔ID: {nft.id}</div>
-            <div>💙NFT ESTATE: {nft.type}</div>
+              <div>💙NFT ESTATE: {nft.type}</div>
+            </div>
           </NFTCardWrapper>
         </Link>
       </div>

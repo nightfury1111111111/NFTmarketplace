@@ -7,8 +7,15 @@ import Explore from "./pages/explore";
 import NftDetail from "./pages/ItemDetail";
 import Create from "./pages/create";
 import About from "./pages/about.js";
+import Map from "./components/map/app";
 
 import { createGlobalStyle } from "styled-components";
+
+import "stylecraft/dist/stylecraft.css";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "../assets/input-range.css";
+import "../assets/hacks.css";
+import "../assets/mapbox-hacks.css";
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -46,6 +53,7 @@ const app = () => (
         <Create path="/create" />
         <About path="/about" />
         <NftDetail path="/nft/:id" />
+        <Map path="/world" />
       </ScrollTop>
     </PosedRouter>
     <ScrollToTopBtn />

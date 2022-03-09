@@ -36,6 +36,9 @@ const GlobalStyles = createGlobalStyle`
     font-family:"Archivo Black";
     font-size:25px;
   }
+  div, p {
+    font-family:"Poppins";
+  }
 `;
 
 const NFTCardWrapper = styled.div`
@@ -61,8 +64,22 @@ const NFTCardWrapper = styled.div`
           return "/img/Element_4.png";
         case "store":
           return "/img/Element_6.png";
-        case "apartment":
+        case "office":
           return "/img/Element_7.png";
+        case "bank":
+          return "/img/Element_8.png";
+        case "car":
+          return "/img/Element_9.png";
+        case "restaurant":
+          return "/img/Element_10.png";
+        case "taxi":
+          return "/img/Element_11.png";
+        case "yacht":
+          return "/img/Element_12.png";
+        case "boat":
+          return "/img/Element_13.png";
+        case "service":
+          return "/img/Element_14.png";
         default:
           return;
       }
@@ -71,6 +88,7 @@ const NFTCardWrapper = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: 37%, 100% 100%;
+  position: relative;
 `;
 
 const AnimatedDiv = styled.div`
@@ -141,9 +159,9 @@ const ItemDetail = () => {
   };
 
   const dispatch = useDispatch();
-  const nftDetailState = useSelector(selectors.nftDetailState);
+  // const nftDetailState = useSelector(selectors.nftDetailState);
   // const nftDetail = useSelector(selectors.nftDetail);
-  const nft = nftDetailState.data ? nftDetailState.data : [];
+  // const nft = nftDetailState.data ? nftDetailState.data : [];
 
   const nftState = useSelector(selectors.nftBreakdownState);
 
@@ -241,23 +259,18 @@ const ItemDetail = () => {
                   bgPath={nftDetail.svgData}
                   type={nftDetail.type}
                 >
-                  <div className="cardTitle">{nftDetail.title}</div>
-                  {nftDetail.isOwned && (
-                    <AnimatedDiv>Owned by you.</AnimatedDiv>
-                  )}
-                  {nftDetail.isOwned ? (
-                    <div style={{ marginTop: "40%" }}>
+                  <div className="cardTitle">
+                    {nftDetail.title.toUpperCase()}
+                  </div>
+                  {nftDetail.isOwned && <AnimatedDiv>OWNED BY YOU</AnimatedDiv>}
+                  <div className="cardInfo">
+                    <div>🆔ID: {nftDetail.id}</div>
+                    <div>
                       📍lat: {Number(nftDetail.latitude).toFixed(4)} N, long:
                       {Number(nftDetail.longitude).toFixed(4)} E
                     </div>
-                  ) : (
-                    <div style={{ marginTop: "47%" }}>
-                      📍lat: {Number(nftDetail.latitude).toFixed(4)} N, long:
-                      {Number(nftDetail.longitude).toFixed(4)} E
-                    </div>
-                  )}
-                  <div>🆔ID: {nftDetail.id}</div>
-                  <div>💙NFT ESTATE: {nftDetail.type}</div>
+                    <div>💙NFT ESTATE: {nftDetail.type}</div>
+                  </div>
                 </NFTCardWrapper>
               </div>
               <div className="col-md-6">
@@ -267,7 +280,7 @@ const ItemDetail = () => {
                     <p>🏁 {nftDetail.address}</p>
                     <p>💙 NFT ESTATE: {nftDetail.type}</p>
                     <p>💼 Status: {nftDetail.status}</p>
-                    <p>💿 One :</p>
+                    <p>🪙 One :</p>
                     <p>⏰ Auction Ends:</p>
                   </div>
                   <div className="col-md-6">
@@ -285,7 +298,7 @@ const ItemDetail = () => {
                 <div className="item_info">
                   ⏰ Auctions ends in
                   <div className="de_countdown">
-                    <Clock deadline={nft.item_deadline} />
+                    <Clock deadline="December, 30, 2022" />
                   </div>
                   <div className="nftTitle">{nftDetail.title}</div>
                   <div className="item_info_counts">
@@ -306,16 +319,14 @@ const ItemDetail = () => {
                   <div className="item_author">
                     <p>💼 Status : {nftDetail.status}</p>
                     <p>💰 Owned by : {getCompressed(nftDetail.owner)}</p>
-                    <p>💿 One : </p>
-                    <p>💵 USD : </p>
                     <p>
-                      {nftDetail.description} LUV NFTs are unique SPL tokens on
-                      Solana Blockchain, that bring multi-utility benefits to
-                      their holders. Our LUV NFT Estate platform uses ERC-721
-                      tokens created on Ethereum blockchain by way of
-                      Harmony.One. Think of a LUV NFT as a crypto gift card with
-                      an interest rate better than your bank.
+                      <span>
+                        <img src="/img/coin.png" className="emojiPng" />{" "}
+                      </span>
+                      <span> One : </span>
                     </p>
+                    <p>💵 USD : </p>
+                    <p>{nftDetail.description}</p>
                     <p>💸 Latest Bid : </p>
                     <p>🤑 Latest Bidder : </p>
                     {/* <div className="author_list_pp">

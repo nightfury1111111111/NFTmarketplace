@@ -19,7 +19,7 @@ class Sreach extends Component {
       onChangeDeposit,
       onChangeTour,
       getPlacesCount,
-      disableTour
+      disableTour,
     } = this.props;
 
     return (
@@ -37,7 +37,7 @@ class Sreach extends Component {
 
         <div className="sc-slide-body">
           <form className="sc-form">
-            <h6 style={{ fontFamily: "Archivo Black" }}>Type</h6>
+            <h6 style={{ fontFamily: "Archivo Black" }}>TYPE</h6>
 
             <div className="sc-form-group sc-grid-2">
               {types.map((type, index) => {
@@ -55,9 +55,14 @@ class Sreach extends Component {
                     />
 
                     <label htmlFor={type.slug}>
-                      <i className="sc-icon-checkbox"></i>
+                      <i
+                        className="sc-icon-checkbox"
+                        style={{
+                          border: "1px solid #69E4AD",
+                        }}
+                      ></i>
 
-                      <span style={{fontSize:"11px"}}>{type.name}</span>
+                      <span style={{ fontSize: "11px" }}>{type.name}</span>
                     </label>
                   </div>
                 );
@@ -82,7 +87,12 @@ class Sreach extends Component {
                     />
 
                     <label htmlFor={room.slug}>
-                      <i className="sc-icon-radio"></i>
+                      <i
+                        className="sc-icon-radio"
+                        style={{
+                          border: "1px solid #69E4AD",
+                        }}
+                      ></i>
 
                       <span>{room.name}</span>
                     </label>
@@ -135,8 +145,8 @@ class Sreach extends Component {
           </form>
         </div>
 
-        <footer className="sc-slide-footer">
-          <h6>{getPlacesCount()} results found.</h6>
+        <footer className="sc-slide-footer" style={{ background: "white" }}>
+          <h6>{getPlacesCount()} RESULTS FOUND.</h6>
         </footer>
       </React.Fragment>
     );

@@ -149,7 +149,10 @@ const Explore = () => {
         <section className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="items_filter filterNft">
+              <div
+                className="items_filter filterNft"
+                style={{ fontFamily: "Poppins" }}
+              >
                 <form
                   className="row form-dark"
                   id="form_quick_search"
@@ -188,6 +191,7 @@ const Explore = () => {
                       type="number"
                       onChange={(e) => setMinPrice(e.target.value)}
                       value={minPrice}
+                      style={{ height: "42px" }}
                     />
                     <div style={{ width: "15px" }} />
                     <input
@@ -198,6 +202,7 @@ const Explore = () => {
                       type="number"
                       onChange={(e) => setMaxPrice(e.target.value)}
                       value={maxPrice}
+                      style={{ height: "42px" }}
                     />
                     <div style={{ width: "15px" }} />
                     <button

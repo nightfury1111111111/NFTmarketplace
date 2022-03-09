@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-// import Particle from "../components/Particle";
+import { Link } from "@reach/router";
 import * as selectors from "../../store/selectors";
 // import * as actions from "../../store/actions/thunks";
 // import { clearNfts } from "../../store/actions";
@@ -40,7 +40,7 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
 
   useEffect(() => {
     if (filter.data == null) return;
-    // console.log("nftData", nfts);
+    console.log("nftData", nfts);
 
     const {
       selectedSearchKey,
@@ -70,6 +70,7 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
 
     if (selectedMaxPrice != 9999999999 || selectedMinPrice != 0) {
       if (selectedStatus == "BuyNow") {
+        console.log("buynow");
         categoryTmpList.map((nft) => {
           if (
             nft.buyNowPrice >= selectedMinPrice &&
@@ -78,6 +79,7 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
             priceTmpList.push(nft);
         });
       } else if (selectedStatus == "OnAuction") {
+        console.log("auction");
         categoryTmpList.map((nft) => {
           if (
             nft.minPrice >= selectedMinPrice &&
@@ -86,6 +88,7 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
             priceTmpList.push(nft);
         });
       } else if (selectedStatus == "OnRent") {
+        console.log("rent");
         categoryTmpList.map((nft) => {
           if (
             nft.rentPrice >= selectedMinPrice &&
@@ -97,8 +100,10 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
         priceTmpList.push(...categoryTmpList);
       }
     } else if (selectedMaxPrice == 9999999999 && selectedMinPrice == 0) {
+      console.log("here");
       priceTmpList.push(...categoryTmpList);
     }
+    console.log(categoryTmpList);
 
     // if (selectedStatus == "BuyNow") {
     //   priceTmpList.map((nft) => {
@@ -129,7 +134,7 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
     // }
 
     if (selectedStatus && selectedStatus != "" && selectedStatus != "all") {
-      nfts.map((nft) => {
+      priceTmpList.map((nft) => {
         if (nft.status === selectedStatus) statusTmpList.push(nft);
       });
     } else {
@@ -214,6 +219,9 @@ const ColumnNewRedux = ({ showLoadMore = false, shuffle = false }) => {
 
   return (
     <div className="row" style={{ paddingBottom: "25px" }}>
+      <Link to="/world">
+        <div className="mapSticky">🗺</div>
+      </Link>
       {/* <Particle /> */}
       {nftShowList.length == 0 ? <div style={{ height: "70vh" }} /> : <></>}
       {nftShowList &&
